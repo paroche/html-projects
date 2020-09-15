@@ -1,0 +1,19 @@
+{
+  "name": "html-projects",
+  "version": "1.0.0",
+  "description": "Pure HTML/CSS Static Sites",
+  "main": "Portfolio.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paroche/html-projects.git"
+  },
+  "author": "Peter Roche",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paroche/html-projects/issues"
+  },
+  "homepage": "https://github.com/paroche/html-projects#readme"
+}
