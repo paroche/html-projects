@@ -1,0 +1,560 @@
+<DOCTYPE html>
+  <!--Working Version 2019-01-21-->
+  <!--Eratosthenese link updated 2019-08-19-->
+  <!--Note: most of the images contained herein do not belong to me or are in part using images that do not belong to me. Since this is a non-comercial site for the purpose of demonstration, I hope that is OK. If not, please let me know -->
+
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+  <html lang='en'>
+
+  <head>
+    <meta charset='UTF-8'>
+    <title>My Portfolio</title>
+    <style>
+      * {
+        --test-border-width: 0px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        --welcome-background-color: #DDD;
+        --projects-background-color: #EEE;
+        --nav-header-height: 2.2em;
+        --neg-nav-header-height: calc(- --nav-header-height);
+      }
+      
+      .underline {
+        text-decoration: underline;
+      }
+      
+      #nav-header {
+        border: var(--test-border-width) solid blue;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        height: var(--nav-header-height);
+        background-color: var(--welcome-background-color);
+      }
+      
+      #navbar {
+        border: var(--test-border-width) solid red;
+        display: flex;
+        margin-top: .5em;
+        /* */
+        margin-right: 2%;
+        justify-content: space-around;
+      }
+      
+      .nav-item {
+        margin-right: 25px;
+      }
+      
+      a {
+        color: #03A;
+        text-decoration: none;
+      }
+      
+      a:visited {
+        color: #1BD;
+      }
+      
+      a:hover {
+        color: #03C;
+      }
+      
+      a:active {
+        color: #0BB;
+      }
+      
+      #welcome-section {
+        height: 100vh;
+        background-color: var(--welcome-background-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      /* maybe move background image to Contact section */
+      /*#welcome-section::after { 
+  content: '';
+  background-image: url('https://github.com/paroche/FCC/blob/master/Fox-Logo-Background.jpg?raw=true'); 
+  opacity: 0.15;
+  background-position: left;
+  background-size: 30em;
+  z-index: 0;
+  background-repeat: space;
+  position: absolute; top: var(--nav-header-height); bottom: 0; left: 0; right: 0;
+} */
+      
+      .bg-container {
+        /*position: relative; /* */
+        overflow: hidden;
+      }
+      
+      .bg-container img {
+        /*position: absolute; 
+  left: 0;
+  top: 0; /* */
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        /*Makes responsive, but I prefer w/out */
+        /*opacity: .85;/* w/ negative z-index seems this has to be higher to show thru? */
+      }
+      
+      #welcome-body {
+        /*min-width: 25%; min-height: 50%; /* */
+        /*padding: 5px; /* */
+        position: absolute;
+        /* */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*border: 1px solid; /* */
+      }
+      
+      #welcome-body h1 {
+        font-size: 42px;
+        font-size: calc(30px + 1vw);
+        /* */
+        margin-bottom: .25em;
+      }
+      
+      #welcome-body h2 {
+        margin-top: .2em;
+        font-size: 32px;
+        font-size: calc(25px + 1vw);
+        /* */
+      }
+      
+      .logo {
+        width: calc(8em + 3vw);
+        /* keeps it in line w/ size of header? */
+        opacity: .85;
+        margin-bottom: .7em;
+        border-radius: 10%;
+        box-shadow: 0 0 16px 1px #8B8;
+        /* , 0 0 16px 4px #DDD; */
+      }
+      
+      #projects {
+        background-color: var(--projects-background-color);
+        padding-top: var(--nav-header-height);
+        margin-top: var(--neg-nav-header-height);
+        /* This is needed to keep from going under fixed nav header, and separate from tile container below so will not pad up with tile-container color. At least, seems to be necessary */
+      }
+      
+      #projects-inner-container {
+        background-color: var(--projects-background-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+      }
+      
+      #projects-inner-container h2 {
+        margin-bottom: 1.5em;
+      }
+      
+      #project-tile-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      
+      .project-tile {
+        background-color: #BBF;
+        background-color: #999;
+        /* */
+        border: 1px solid #8A8;
+        /*#2A2; */
+        /*border: 1px solid #9B9; /* */
+        height: 200px;
+        width: 300px;
+        height: 194px;
+        height: auto;
+        /*height: 196px;/* */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2em;
+        /* ? */
+        /*background-color: var(--projects-background-color); border: 0px; /* */
+      }
+      
+      .img-with-caption {
+        background-color: #DDD;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      img {
+        max-width: 100%;
+      }
+      
+      .captions {
+        margin-top: 5.1px;
+        font-size: 16px;
+        font-size: var(--caption-font-size);
+        /* */
+        color: #306;
+        color: #104;
+        /* */
+      }
+      
+      #eratosthenes {
+        background-color: hsl(178, 37%, 81%);
+        background-color: #CDD;
+        /* */
+      }
+      
+      #lotr-survey {
+        background-color: #DDE;
+      }
+      
+      #product-landing-page {
+        background-color: #CDC;
+      }
+      
+      #technical-documentation {
+        background-color: #CCC;
+      }
+      
+      #contact {
+        height: 990vh;
+        width: 100%;
+        padding-top: calc(var(--nav-header-height) + 2em);
+        /* */
+        margin-top: var(--neg-nav-header-height);
+        /* */
+        text-align: center;
+      }
+      
+      #contact h2 {
+        margin-top: .4em;
+      }
+      
+      #contact h3 {
+        margin-top: 8.8px;
+      }
+      
+      #contact-links {
+        margin-top: 4em;
+      }
+      
+      @media (max-width: 400px) {
+        .captions {
+          font-size: var(--caption-small-font-size);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id='nav-header'>
+      <nav id='navbar'>
+        <a class='nav-item' href='#welcome-section' rel='internal'>Welcome</a>
+        <a class='nav-item' href='#projects' rel='internal'>Projects</a>
+        <a class='nav-item' href='#contact' rel='internal'>Contact</a>
+      </nav>
+    </div>
+
+    <div id='welcome-section'>
+      <div class='bg-container'>
+        <!-- <img class='bg-image' src='https://github.com/paroche/FCC/blob/master/Fox-Logo-Background.jpg?raw=true'/> <!-- -->
+      </div>
+      <div id='welcome-body'>
+        <h1>ZorroWare</h1>
+        <img src='https://github.com/paroche/FCC/blob/master/Fox-Logo-3.jpg?raw=true' class='logo' alt='Fox logo'>
+        <h2>Portfolio</h2>
+      </div>
+    </div>
+
+    <!-- to add 
+
+    "Fictional University" WordPress site (on SiteGround)     http://peterr1.sgedu.site/
+
+    "Natours" guided nature tour (fictional) site (on heroku): https://natours-blue.herokuapp.com/
+    
+    "Complex App" simple social network app built with React site (backend on heroku, frontend on Netlify): https://elated-brattain-021507.netlify.app/
+
+
+    -->
+
+    <!-- div#projects>div.project-tile*4(tab) -->
+    <div id="projects">
+
+      <div id='projects-inner-container'>
+        <h2>Here's some of my work . . .</h2>
+        <div id='project-tile-container'>
+
+          <div class="project-tile" id='eratosthenes'>
+            <a href='./EratosthenesTribute.html' target='_blank' alt='Eratosthenes Tribute Page'>
+              <figure class='img-with-caption'>
+                <img src='https://github.com/paroche/FCC/blob/master/Eratosthenes-Tribute.jpg?raw=true' class='header-images' alt='Eratosthenes Tribute Page Image' />
+                <figcaption class='captions'>Eratosthenes Tribute Page</figcaption>
+              </figure>
+            </a>
+          </div>
+
+          <div class='project-tile' id='lotr-survey'>
+            <a href='./LOTR-Survey.html' target='_blank' alt='LOTR Survey'>
+              <figure class='img-with-caption'>
+                <img src='https://github.com/paroche/FCC/blob/master/LOTR-Survey-1.jpg?raw=true' class='header-images' alt='LOTR Survey Page Image' />
+                <figcaption class='captions'>LOTR Advanced Geek Survey</figcaption>
+              </figure>
+            </a>
+          </div>
+
+          <div class='project-tile' id='product-landing-page'>
+            <a href='./BrightGreenMachines.html' target='_blank' alt='Product Landing Page (Bright-Green Machines)'>
+              <figure class='img-with-caption'>
+                <img src='https://github.com/paroche/FCC/blob/master/Bright-Green-Machines.jpg?raw=true' alt='Bright Green Machines Product Landing Page Image' />
+                <figcaption class='captions' style='--caption-font-size: 14px; --caption-small-font-size: 12px'>'Bright-Green Machines' Product Landing Page</figcaption>
+              </figure>
+            </a>
+          </div>
+
+          <div class='project-tile' id='technical-documentation'>
+            <a href='./CenteringTextAndImagesInHTML.html' target='_blank' alt='Technical Documentation - Centering Text and Images in HTML/CSS'>
+              <figure class='img-with-caption'>
+                <img src='https://github.com/paroche/FCC/blob/master/Centering-Text-and-Images.jpg?raw=true' alt='Technical Documentation - Centering - Image' />
+                <figcaption class='captions' style='--caption-font-size: 12px; --caption-small-font-size: 11px'>Technical Documentation - Centering in HTML/CSS</figcaption>
+              </figure>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id='contact'>
+      <h2>If you like what you see...</h2>
+      <h3>Here's how to find me</h3>
+      <div id='contact-links'>
+        <a id='profile-link' href='https://www.freecodecamp.org/fcc31eefc91-eba7-43e5-a26c-c358ba796595' target='_blank'>FCC Profile</a>
+      </div>
+    </div>
+  </body> display: block; /* doesn’t matter */ text-align: center; }
+  </code>
+  <p>Though “text-align: center” does not work for a single line of text directly inside a flex box that has the default flex-direction of “row”, it turns out that if the width of the text exceeds the width of the box (minus padding), so that the text wraps,
+    all the content (text), including the first line, will then center. (And “text-align: right” will similarly only right-justify after the content starts to wrap). Strange, but true.</p>
+  <p>For content within a flex item (a box within a flex box), “text-align: center” will work if the box has a fixed width, and is not itself flex (or has a flex-direction of “column”, see below). The “text-align” property value can even be inherited from
+    the containing flex box.</p>
+  <p>For a flex item with “flex-direction: column”, “text-align: center” WILL work for text, but, unlike “align-items: center”, will not horizontally center flex items (child boxes) within the box (but it WILL center text within the contained flex items,
+    by inheritance).</p>
+  <p>Usually when using flexbox one wouldn’t want to bother using text-align, and would just use the built-in centering features of flex box, as described in a later section. However, the effects are not totally identical in terms of content box width, and
+    there could conceivably be circumstances in which text-align could be useful even in a flexbox.</p>
+  </li>
+  </ul>
+  </section>
+
+  <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_with_Left_and_Right_Margins_set_to_Auto'>
+    <header>Horizontal Centering of Text and Images with Left and Right Margins set to Auto</header>
+    <p>For a box with a width greater than that of its contents (not a flex item in row with no width set, for instance), its contents can be centered by setting the left and right margins to “auto”, e.g.</p>
+    <code>HTML
+
+          &ltdiv class='center-using-auto-margin'&gtText to be centered&lt/div&gt
+          &ltimg src=’img.jpg’ class=’center-using-auto-margin image’&gt
+
+          CSS:
+
+          .center-using-auto-margin {
+          width: 500px;
+          margin-left: auto; 
+          margin-right: auto;
+          }
+          .image {
+          width: 200px;
+          }</code>
+  </section>
+
+  <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_using_Position_and_Transform'>
+    <header>Horizontal Centering of Text and Images using Position and Transform</header>
+    <p>Though this technique is more useful for vertical centering (see below), Position and Transform can be used to center horizontally as well. To do so, the content (image or text) is assigned the properties “position: relative” and “left: 50%” to put
+      its left edge in the middle of the box (horizontally), then adjusted to the left by 50% of its own width by adding the property “transform: translateX(-50%)”. This will place it in the center of its container. (It's perhaps even less intuitive,
+      but you could use “right: -50%” instead of “left: 50%”. In that case you would still use “transform: translateX(-50%)).</p>
+    <p>Note that if you have even padding and/or a border on the content, Position and Transform will still center it properly, even if the box-sizing is not border-box. However, having margins on the content on the reference sides for the translation (e.g.
+      having a non-zero “margin-left” when using “left: 50%”) will throw off the translation.</p>
+    <p>If one wants to horizontally center content in a box that also contains other content to the left of the content that one wants to center, you may then have to use “position: absolute” (instead of “position: relative”) for the content, and make the
+      box in which you want to center the content a “positioned” box by setting its position property to “relative” (but there's no need to actually reposition it with “left” or whatever).</p>
+  </section>
+
+  <section class='main-section' id='Horizontal_and_Vertical_Centering_of_Text_and_Images_with_Flexbox'>
+    <header>Horizontal and Vertical Centering of Text and Images with Flexbox</header>
+    <p>Centering text and images with flex box is pretty straightforward. The most notable complication is that in flex box there is no “horizontal” or “vertical” axis per se, but rather a “main axis” and a “cross axis”. How these correspond depends on the
+      “flex-direction” property. By default, the “flex-direction” is set to “row”, so that flex items line up horizontally. For “flex-direction: row”, and for “flex-direction: row-reverse”, which put the flex items on the same line (as long as there’s
+      room), the main axis is horizontal, and the cross axis is vertical. If the “flex-direction” property is set to “column” (or to “column-reverse”), the flex items are by default on separate lines, in a column, and the main axis is vertical while the
+      cross axis is horizontal.</p>
+    <p>To center flex items on the main axis, use “justify-content: center” (other possible values for “justify-content” are “flex-start”, “flex-end”, “space-between”, “space-around”, and “space-evenly”). If the “flex-direction” is “row” (or “row-reverse”),
+      this will center the item or items horizontally (they will all be together at the center of the flex container). If the “flex-direction” is “column” (or “column-reverse”), this will center the item or items vertically.</p>
+    <p>To center flex items on the cross axis, one can use “align-items: center”. For the default flex-direction of “row”, this will place all items in the vertical center of the box (box height will have to be set for this to be seen, otherwise the height
+      of the box will just be the height of the contents, plus padding and margins). If the flex-direction is “column”, “align-items: center” will center the items horizontally. If there are multiple items or lines of text, they will all group together
+      in the center.</p>
+    <p>If one wishes instead to spread the items on the cross axis evenly, one can use “align-contents: center”. For a single item (or line of text) this will work the same as “align-items: center”, but for multiple items or lines it will distribute the
+      extra cross-axis space evenly around the items. (to get a similar effect on the main axis, one would use “justify-content: space-around”).</p>
+  </section>
+
+  <section class='main-section' id='Vertical_Centering_of_Text_using_Line_Height_or_Manual_Margins_or_Padding'>
+    <header>Vertical Centering of Text using Line Height or Manual Margins or Padding</header>
+    <p>To center text vertically in a non-flex container, there is no convenient built-in syntax, but there are a few ways of accomplishing the task.</p>
+    <p>(The methods below work for vertical centering whether or not the container is flex):</p>
+    <ul>
+      <li>
+        <p>1. One method is by manually setting the vertical margins and/or padding. This requires knowing the height of the content and container boxes in advance.</p>
+      </li>
+      <li>
+        <p>2. Another method is that, for one line of text, you can set the line-height equal to the height of the container, or to the height you want the container to be, as shown below (also centers horizontally):</p>
+        <code>HTML: 
+
+              &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+
+              CSS:
+
+              .center-non-flex {
+              height: 200px; /* This is unnecessary – without this code box height will just be the line-height */
+              text-align: center;
+              line-height: 200px
+              border: 1px solid;
+              }</code>
+        <p>To vertically center multiple lines of text one could divide the line height by the number of lines to spread them out vertically. To center them all together you would have to put them into another container and use one of the techniques described
+          below on that container.</p>
+      </li>
+      <li>
+        <p>3. Center vertically using padding. For some reason this only works if you do <strong>not</strong> set the container height. But you can decide how high you want the container to be and use top and bottom padding to center your lines:</p>
+        <code>HTML:
+
+              &ltdiv class='center-non-flex'&gt
+              &ltp&gtText to be centered&lt/p&gt
+              &ltp&gt2nd line&lt/p&gt
+              &lt/div&gt
+
+              CSS:          
+
+              .center-non-flex {
+              text-align: center;
+              padding: 90px 0 90px 0;
+              border: 1px solid
+              }</code>
+      </li>
+    </ul>
+  </section>
+
+  <section class='main-section' id='Vertical_Centering_of_Text_or_Images_using_Position_and_Transform'>
+    <header>Vertical Centering of Text or Images using Position and Transform</header>
+    <p>Position and Transform can be used to center images or text vertically (as well as horizontally). The content (image or text) is set to have “position: relative” and “top: 50%” to put its top edge in the middle of the box (vertically), then adjusted
+      up by 50% of its own height by adding the property “transform: translateY(-50%)”. This will place it in the center of its container. (Of course, as always, the container has to have a height set higher than that of the content). E.g.:
+    </p>
+    <code>HTML
+
+          &ltdiv class=’container’&gt
+          &ltimg src=’img-to-center.jpg’ class=’center-vertically-position-transform image’&gt
+          &lt/div&gt
+
+          CSS:
+
+          .container {
+          height: 400px;
+          }
+          .center-vertically-position-transform {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          }
+          .image {
+          height: 200px;
+          }</code>
+    <p>Note that to vertically center text or an image in a container using Position and Transform, the text has to be in its own sub-container within the container that it’s being centered in, so that the Position and Transform properties can be applied
+      to the content and not the outer container. E.g.</p>
+    <code>HTML
+
+          &ltdiv id=’container’&gt
+          &ltdiv id=’text-to-center’&gt
+          Text to center using Position and Transform
+          &lt/div&gt
+          &lt/div&gt
+
+          CSS:    
+
+          #container {
+          height: 400px;
+          }
+          #text-to-center {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          }</code>
+    <p>Above, the “position: relative” “top: 50%”* moves the “text-to-center” division down 50% of the height of its container (the division “container”). The “transform: translateY(-50%)” then moves it back up 50% of its own height. If the “text-to-center”
+      division were not there, and/or the Position and Transform values were instead assigned to “#container”, the container itself would be adjusted relative to <span class='underline'>its</span> container, and its contents would not be vertically centered.
+    </p>
+    <p class='footnote'>*if one wanted to, one could use “bottom: -50%” instead of “top: 50%”.</p>
+    <p>As when using Position and Transform for horizontal centering, for vertical centering, if you have even padding and/or a border on the content, Position and Transform will still center it properly, even if the box-sizing is not border-box. In fact,
+      Position and Transform will even center an item that, with padding and border, is larger than its container. However, having margins on the content on the reference sides for the translation (e.g. having a non-zero “margin-top” when using “top:
+      50%”) will throw off the translation.</p>
+    <p>If there is another item or are other items in the box between the item being centered and the top of the container, the item will still be moved down by 50% of the container height, but not from the top of the container -- it will be moved down from
+      the position it would have occupied under the other item(s), placing it more than half-way down the box (and also more than half-way down the part of the box under the other item). In this situation, if one still wanted to center the item within
+      the container, you would have to use “position: absolute” so that the item is adjusted relative to the container rather than to the position the item would have been in normally. This, in turn, requires that you make the container a “positioned”
+      item, which can be done by giving it a “position” property of “relative”, but with no need to set an offset (like “top” or “left”). (I have not found a way to achieve this effect elegantly in flexbox – an example of why it’s helpful to know multiple
+      alignment techniques. Also an example of why I wonder why there isn’t a “self” alignment property in flexbox for the main axis analogous to the “align-self” property for the cross-axis). Also note that when using “position: absolute”, the item’s
+      box width, if it had otherwise defaulted to the width of its container, will instead default to the width of its contents. At least, that’s what my tests have shown. However, it can still be explicitly reset to another width or back to the container
+      width (using “width: 100%").</p>
+    <p>Another possibility: If you know the height of the item(s) above the item to be centered, you can still use position: relative, but use a negative top margin equal to the height of item(s) above the item being centered.</p>
+    <p>To center both vertically and horizontally can use top 50%, left 50% and transform: translate(-50%, -50%) OR could use top 50% and transformY(-50%) then use margin-left: auto and margin-right: auto. But unlike transformX(), auto margins will only
+      work if the contents are smaller than the container.</p>
+  </section>
+
+  <section class='main-section' id='Vertical_Centering_of_Text_or_Images_using_Table_Cell,_Vertical-align:_middle'>
+    <header>Vertical Centering of Text or Images using Table Cell, Vertical-align: middle</header>
+    <p>Another way to get and item to center vertically without using flexbox is to make the container a table cell, then use the vertical-align property of table cells to align the item. This is perhaps a bit conceptually easier than Position and Transform,
+      and, like Position and Transform, does not require knowing the dimensions of the container or the contents. Unlike Position and Transform, and like Flexbox and text-align, it operates at the level of the container rather than of the content.</p>
+    <code>CSS (for the container):
+
+          display: table-cell; 
+          height: 200px; 
+          vertical-align: middle;</code>
+    <ul class='notes'>Notes:
+      <li>
+        <p>There is no “horizontal-align” – table cells typically use “text-align” for that purpose.</p>
+      </li>
+      <li>
+        <p>Other possible values of vertical-align are “baseline”, “top”, “bottom”, “sub”, and “text-top”.</p>
+      </li>
+      <li>
+        <p>It appears that a floated box cannot be made into a table-cell. However, one can put another box inside the floated box, make THAT box into a table-cell, and proceed as above.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class='main-section' id='Some_Other_Resources'>
+    <header>Some Other Resources</header>
+
+    <section class='sub-section'>
+      <header>Centering in General</header>
+      <ul>
+        <li><a href='https://www.w3schools.com/css/css_align.asp' alt='Horizontal and Vertical Align (W3 Schools)' target='_blank'>CSS Layout - Horizontal & Vertical Align (W3 Schools)</a></li>
+        <li><a href='https://www.w3schools.com/howto/howto_css_image_center.asp' alt='How to Center Images (W3 Schools)' target='_blank'>How TO - Center Images (W3 Schools)</a></li>
+        <li><a href='https://www.w3.org/Style/Examples/007/center.en.html' alt='Centering Things (W3C)' target='_blank'>CENTERING THINGS (W3C)</a></li>
+        <li><a href='https://html-online.com/articles/image-align-center/' alt='Aligning Images (HTML Online)' target='_blank'>How to align a HTML image to the center (HTML Online)</a></li>
+      </ul>
+    </section>
+    <section class='sub-section' id='Flex_Box'>
+      <header>Flex Box</header>
+      <ul>
+        <li><a href='https://medium.com/@js_tut/the-complete-css-flex-box-tutorial-d17971950bdc' alt='The Complete CSS Flex Box Tutorial (Medium)' target='_blank'>The Complete CSS Flex Box Tutorial (Medium.com)</a></li>
+        <li><a href='https://yoksel.github.io/flex-cheatsheet/' alt='Flex Cheatsheat' target='_blank'>Flex Cheatsheat (yoksel/github)</a></li>
+        <li><a href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/' alt='Guide to Flexbox (CSS-Tricks)' target='_blank'>A Guide to Flexbox (CSS-Tricks)</a></li>
+        <li><a href='https://internetingishard.com/html-and-css/flexbox/' alt='Flexbox (Internetting is Hard)' target='_blank'>Flexbox (Internetting is Hard)</a></li>
+        <li><a href='https://medium.com/@wendersyang/what-the-flex-is-the-difference-between-justify-content-align-items-and-align-content-5fd3694f5259' alt="Difference between justify-content, align-items, and align-content'" " target='_blank'">What the flex is the difference between justify-content, align-items, and align-content?! (Wendy Yang)</a></li>
+        <li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Flexbox' alt='Box Alignment in Flexbox (MDN)' target='_blank'>Box Alignment in Flexbox (MDN)</a></li>
+      </ul>
+    </section>
+  </section>
+
+  <div class='end-padding'></div>
+  </main>
+  </body>
+
+  </html>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!-- Submission version 2019-01-23 -->
+
+<!-- All images on this page are the property of others -- I hope that since this is just a non-comercial demo page that will not be a problem. If it is, please let me know -->
+
+<!--
+<script  src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+-->
+
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>'Bright-Green Machines'</title>
+    <style>
+		* {
+  margin: 0;
+  padding: 0;
+}
+
+/* w/ heavy dependency on variables, not sure how will look in IE */
+
+body {
+  --test-border-width: 0px;
+  --half-bold: 540; /* doesn't work for default font-type -- just goes to normal or bold, whichever is closer */
+  --max-container-width: 1400px;
+  --header-height: 117px;
+  --neg-header-height: calc(-1 * var(--header-height));
+  background: linear-gradient(to bottom right, #ECFFEC, #DDFFDD);
+  /* attempts to solve over-wide slide-bar problem */
+  margin-right: 0; /* didn't solve problem */
+  overflow-x: hidden; /* This worked, but don't know why I needed it */
+  border: var(--test-border-width) solid black; 
+}
+
+#container {
+  max-width: 100%; /* */
+  margin: 0;
+  padding: 0; /* */
+  --light-green: #E5FFE5; /* very light green */
+  --lighter-green: #F0FFF0; /* */
+  --body-background-color: var(--light-green);
+  background-color: #E5FFE5; /* fallback */
+  background-color: var(--body-background-color); /* */
+  background: linear-gradient(to bottom right, var(--light-green) 35%, var(--lighter-green), #CCFFAA, var(--lighter-green), var(--light-green)); /* */
+  --container-border-color: lightgreen;
+  --container-border-color: var(--light-green); /* Same as background */
+  border: 5px solid #E5FFE5; /* fallback */
+  border: 5px solid var(--container-border-color);
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0; /* */
+  right: 0; 
+  margin: 0 0;
+  padding: 0 0 5px 0;
+  padding-bottom: 17px; /* new 1/18 (10px), 1/23 */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  --header-background-color: #DFD; /* new experiment 1/18 */
+  border-top: 5px solid var(--container-border-color);
+  border-left: 5px solid var(--container-border-color);/* */
+  border-right: 5px solid var(--container-border-color);
+  border: 5px solid var(--header-background-color); /* new 1/18 */
+  border-bottom: 3px solid green;
+  /*border-bottom: 4px groove #0F0; /* sticking w/ solid? */
+  background-color: var(--body-background-color); /* */
+  /*background-color: var(--header-background-color); /* new 1/17 */
+  z-index: 5;
+}
+#header-company {
+  margin: 15px 0 10px 4%;
+  display: flex;
+  flex-direction: row; /* default */
+  justify-content: center;
+  border: var(--test-border-width) solid ;
+}
+.header-img {
+  max-height: 25px;
+  padding: 12px 10px 0 15px;
+  border: var(--test-border-width) solid;
+}
+#header-img {
+  display: block;
+  margin-top: 2px;
+  /*visibility: visible;*/
+}
+#header-img-2 {
+  display: none;
+  /*visibility: hidden;
+  max-height: 0;*/
+}
+#header-img-3 {
+  display: none;
+  /* visibility: hidden;
+  max-height: 0; */
+}
+#company-text {
+  margin: 0 0 0 3px;
+  font-size: 48px; /* */
+  font-size: 4vw; /* */
+  color: green;
+  color: #00AA00;
+  border: var(--test-border-width) solid;
+  flex-wrap: wrap; /* ? */
+}
+
+#nav-bar {
+  margin: 0px 5% 0 5px;
+  padding-top: 10px;
+  padding-bottom: 18px;
+  display: flex;
+  justify-content: space-around;
+  border: var(--test-border-width) dashed green; /* */
+}
+.nav-link {
+  color: #090;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  height: 1.2em;
+  margin: 1px 0 0 15px;
+  padding: 2px 1px 0 1px;
+  /*background-image: linear-gradient(to bottom right, #aFa, #DFD, #DFD, #EFE, #efe, #efe, #aFa); /* */
+  /* background-image: linear-gradient(to bottom right, #ECFFEC, #DDFFDD, rgb(0,255,0,.2));/* */
+  /* background-color: rgb(120,255,120,0.02); /* Decided best without*/
+  /*border: 1px solid #aFa; /* */
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px rgb(120,255,120,0.07) inset; /* */
+}
+.nav-link:visited {
+  /*color: #00A700;
+  color: #00CC44;
+  color: #00CC44; */
+  background-image: linear-gradient (to bottom right, #EFE, #EFE, #FF0, red); /* Not working? */
+}
+.nav-link:hover {
+  /*color: #00CC44; /* */
+  /*background: #DDFFDD; /* */
+  color: #00c400;/* */
+  /*border-top: 1px solid #CCFFCC; /* makes it drop a px */
+  /*border-box: 0 0 8px 8px #CCFFCC;*/
+  /*background: linear-gradient(to bottom ,#DFD, #EFE, #DFD); /* */
+}
+
+#main-body {
+}
+
+#image-pool {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: var(--header-height); margin-top: 120px; /* looks better w/ more when full. Bumped from 100 to 120 when added border to header */
+  margin-top: calc(var(--header-height) + 29px); /* test 1/19 */
+  margin-bottom: 40px;
+  border: var(--test-border-width) solid red; /* */
+}
+figure {
+}
+.image {
+  margin: 5px;
+  max-height: 150px;
+  max-width: 100%;
+  width: auto;
+  border: var(--test-border-width) solid black
+}
+
+#intro {
+  max-width: 65%;
+  margin: 20px auto 45px auto;
+  margin: 1.25em auto 3.5em auto; /* test 1/18/19 */
+  font-family: 'Times New Roman'; font-weight: normal; /*font-weight: bold; /* */
+  font-size: 18px;
+}
+#sections {
+  border: var(--test-border-width) solid blue; /* */
+  margin: 20px 3% 50px 5%;
+  font-family:  Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif; font-weight: bold;
+  font-size: 16px; /* ? */
+}
+.anchor {
+  /* to compensate for fixed nav bar covering the section: */
+  display: block;
+  height: var(--header-height);
+  margin-top: var(--neg-header-height); /* Otherwise will be a header-sized gap above anchor spot. Still, such a work-around shouldn't be necessary */
+  visibility: hidden;
+} /* */
+.section-item {
+  margin: 15px 0 1.5em 5%; /* */
+  border: var(--test-border-width) solid orange;
+}
+.section-regular {
+  height: auto;
+  display: flex;
+  flex-direction: row; 
+}
+.section-regular-name {
+  margin-left: 2px; margin-left: 5px;
+  width: 90px;
+  font-weight: bold;
+  font-family:  Garamond,Baskerville,'Baskerville Old Face','Hoefler Text','Times New Roman',serif;
+  font-size: 16px; font-size: 17px;
+  border: var(--test-border-width) solid purple;
+}
+.section-name-with-image {
+  display: flex;
+  flex-direction: column;
+}
+.section-image {
+  margin-top: 2px;
+  margin-left: 1px;
+  max-height: 100%;
+  max-width: 80px;
+}
+#philosophy-image-1 {
+  max-height: 0; /* does make a difference */
+  margin: 0;
+  visibility: hidden;
+  display: none;
+}
+#philosophy-image-2 {
+  margin-top: 8px;
+  margin-left: 7px;
+  visibility: visible;
+}
+.section-blurb {
+  font-weight: var(--half-bold);
+  font-family:  Garamond,Baskerville,'Baskerville Old Face','Hoefler Text','Times New Roman',serif;
+  font-weight: bold;
+  max-width: 80%;
+  margin: 1px 0 0 14px;
+  border: var(--test-border-width) solid green;
+}
+.list-with-picture {
+  display: flex;
+  flex-direction: row;
+}
+.list-block {}
+.section-list-name {
+  border: var(--test-border-width) solid yellow;
+}
+.section-list {
+  margin-top: 10px;
+  margin-left: 80px;
+}
+.section-r-side-image {
+  display: flex; /* ? */
+  margin-left: 60px; /* */
+  height: 200px;
+  width: auto;
+  /*flex-shrink: 2; /* doesn't seem to do anything */
+  border: var(--test-border-width) solid green;
+}
+#sample-products {
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 16%;
+  margin-bottom: 25px;
+  justify-content: flex-start;
+  border: var(--test-border-width) solid yellow;
+}
+.product {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* no */
+  align-items: flex-start; /* doesn't do it either */
+  max-width: 300px;
+  border: var(--test-border-width) solid green;
+}
+.product-image {
+  height: 200px;
+  max-width: 300px;
+  margin-bottom: 5px;
+}
+.product-link {
+  margin: 0 auto;
+  color: #1A3;
+  justify-self: center;
+  align-self: center; /* just won't center! */
+}
+
+.video-container {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  border: var(--test-border-width) solid purple; /* */
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.video-caption {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  border: var(--test-border-width) solid green;
+}
+.sup {
+  font-size: 6px;
+}
+.video-caption-footer {
+  margin: 30px auto 0 auto;
+  height: 10px; width: 80px; 
+  margin-left: auto;
+  font-size: 8px;
+  border: var(--border-test-width) solid;
+}
+video-caption-footer:hover {
+  font-size: 16px;
+}
+
+#form {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* */
+  border: var(--test-border-width) solid gold;
+}
+#email-container {
+  margin: 15px 0;
+  max-width: 100%; /* */
+  padding: 0 2px;
+  display: flex;
+  flex-direction: row;
+  /*align-items: center; /* this made email input box normal again , then I gave it a fixed height instead*/
+  font-weight: bold;
+  border: var(--test-border-width) solid blue;
+}
+#email-label {
+  margin-top: 1px;
+  padding: 0 2px;
+  border: var(--test-border-width) solid red;
+}
+#email {
+  margin-left: 10px;
+  margin-top: 0px;
+  padding: 3px;
+  padding-left: 5px;
+  height: 25px; height: 15px;
+  width: 250px;
+  max-width: 96%;
+  border: 1px solid green; /*var(--test-border-width) solid red; /* */
+}
+#submission-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* */
+  align-content: center; /* */
+  margin: 15px 20px;
+  border: var(--test-border-width) solid orange;
+}
+#submit-container {
+  width: 120px;
+  text-align: center; /* */
+  margin: 0px auto; /* only way I was able to center #submit -- flex align didn't seem to work */
+}
+#submit {
+  width: 100px;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: 0.5px -0.5px 1px 1px green; /* */
+  transition: all 50ms;
+  --box-shadow-color: green;
+  --box-shadow-color: #449900; /* a more yellow green */
+}
+#submit:hover {
+  color: #009900;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: yellow;
+  background-color: var(--body-background-color);
+  /* OR */
+  color: #006600;
+  /* background-color: #A5FFA5; /* */
+  --border-inset-shadow-color: #99FF99;
+  --border-inset-shadow-color: var(--box-shadow-color);
+  --border-gold-color: #FFD700;
+  /* --border-gold-color: #FFBF00; /* */
+  /* --border-gold-color: yellow; /* */
+  --border-top-color: var(--box-shadow-color);
+  border: 2px solid var(--border-top-color); /*var(--border-shadow-color); /* gold; */
+  box-shadow: 2px 18px 4px 5px var(--box-shadow-color), 0px 0px 2px 2px inset var(--border-inset-shadow-color), 0px 0px 5px 5px var(--border-top-color); /* */
+  transition: all 1s;
+}
+#submit:active {
+  font-style: italic;
+  font-style: oblique;
+  box-shadow: 0px 18px 4px 5px var(--box-shadow-color), 0px 0px 2px 2px inset var(--border-inset-shadow-color), 0px 0px 5px 5px var(--border-top-color), 0 40px 4px 5px var(--box-shadow-color); /*Extend bottom shadow*/
+}
+#sub-submit {
+  /*height: 100px;*/
+  line-height: 18px;
+  margin-top: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--body-background-color);
+  /*color: blue; /* temp so could see where it was*/
+}
+
+@media(min-width: 1400px) { /*}var(--max-container-width)) {*/
+  #container, #header {
+    max-width: 1400px; /* fallback */
+    max-width: var(--max-container-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(max-width: 1025px) {
+  .header-img {
+    padding-top: 2px;
+    padding-right: 5px;
+  }
+  #header-img {
+    display: none;
+  }
+  #header-img-2 {
+    display: block;
+    max-height: 40px;
+    margin-right: 2px;
+  }
+  #form {
+    margin-left: 5px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  #email-container {
+    width: 96%; /* Don't know why I needed this to get box to widen when it could */
+    align-content: center;
+    align-items: center;
+  }
+  #email {
+    margin: 8px 2%;
+    border: 1px solid lightgreen;
+  }
+  #submission-container {
+    margin: 0; /* Now in own row */
+  }
+  #sub-submit {
+    font-size: 10px;
+  }
+}
+
+#bottom-links {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  /* margin-bottom: 36px; /* Was only useful if hover:before on bottom links went over link rather than above*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: var(--test-border-width) solid;
+}
+.popup-box {
+  border: var(--test-border-width) solid red;
+}
+.popup-button {
+  border: var(--test-border-width) solid green;
+  margin: 0 auto;
+  color: #001100;
+  text-decoration: none;
+  position: relative; /* relative (or absolute) position here, or in container popup-box, made buttons show through popup background, until gave popup-overlay z-index: 1 */
+}
+.popup-button:hover {
+  color: #00AA00;
+}
+.popup-button::before {
+  position: absolute;
+  z-index: 1; 
+  z-index: 0; /* if not overlaying button */
+  top: var(--before-top);
+  text-align: center;
+  border-radius: 10%;
+  content: ''; /* */
+  opacity: 0; /* Seem to need both content and opacity set to get transition? Weird */
+  /*transition: all 1s ; /* just for when stop hovering */
+}
+.popup-button:hover::before {
+  content: attr(data-desc);
+  opacity: 1;
+  height: var(--before-height);
+  background-color: #DFD;
+  color: #005500;
+  transition: all .8s linear .5s; /*  */
+}
+
+/* The JS-free popup functionality for the bottom links in the CSS below is based on / inspired by "Popup/Modal Windows with JavaScript" by Prakash:
+https://codepen.io/imprakash/pen/GgNMXO
+*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  transition: opacity .8s;
+  background: rgba(225,255,225,0); /* Going w/ no background - border on .popup instead */
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1; /* This fixed transparancy issue created by making button position: relative */
+} 
+.popup-overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 110px auto; /* fallback */
+  margin-top: var(--header-height); /* Aiming for bottom of header */
+  margin-left: var(--popup-l-offset);
+  margin-right: var(--popup-r-offset);
+  z-index: 2; /* Doesn't cover background */
+  padding: 6px 10px;
+  background: #FAFFFA; 
+  border-radius: 5px;
+  width: 40%;
+  width: var(--popup-width);
+  height: auto; /* prob doesn't do anything? */
+  position: relative;
+  overflow: auto; /* doesn't work in Code Pen, but does in Chrome and Opera, except off by header height, maybe */
+  transition: all 5s ease-in-out; /* not having an effect */
+  border: 1px solid green;
+}
+.popup h2 {
+  font-size: 16px;
+  margin-top: 0;
+  padding: 0;
+}
+.close-popup {
+  position: absolute;
+  top: 0px; right: 5px;
+  transition: all 100ms;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+.close-popup:hover {
+  color: #0F0;
+}
+.popup-content {
+  z-index: 2; /* ? */
+  margin-top: 10px;
+  margin-bottom: 3px;
+  max-height: 100%; /* was 30%. Don't know why */
+  overflow: auto; /* Doesn't work? */
+  border: var(--test-border-width) solid;
+}
+
+/* End of Prakesh-related CSS */
+
+#testimonial-ul {
+  margin-left: 10px; /* ? */
+}
+.attribution {
+  /*margin-left: auto; /* */
+  padding-left: 25px;
+  padding-bottom: 5px;
+}
+
+@media(max-width: 1105px) {
+  body {
+    --header-height: 125px; 
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #header {
+    padding-bottom: 10px; /* new 1/23 */
+  }
+  #company-text {
+    font-size: 5.5vw; 
+  }
+  #nav-bar {
+    margin-top: 3px;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 0px; /* */
+    padding: 0 1px 5px 1px;
+  }
+  .nav-link {
+    margin: 1px auto 0 0;
+    /* background: #AFA /* */
+    background-color: var(--light-green);
+    border: none;
+    box-shadow: none;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+    margin-bottom: 20px; /* ? */
+  }
+  #intro {
+    max-width: 85%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+  .section-r-side-image {
+    align-self: flex-end;
+  }
+  #sample-products {
+    margin-bottom: 15px;
+  }
+  #email-container {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    flex-direction: column;
+  }
+}
+@media(max-width: 840px) {
+  #company-text {
+    margin: 0;
+  }
+  #nav-bar {
+  margin: 0px 1% 0 5px;
+  }
+  .list-with-picture {
+    flex-direction: column;
+  }
+  .section-r-side-image {
+    margin-top: 15px;
+    margin-left: 17%; 
+  }
+  #sample-products {
+    flex-direction: column;
+    height: auto;
+    margin-left: 25%;
+    border: var(--test-border-width) solid blue;
+  }
+  .product {
+    margin-bottom: 25px;
+  }
+  .product.last {
+    margin-bottom: 0px;
+  }
+  .video-container {
+    width: 65%;
+  }
+}
+@media(max-width: 650px) {
+  body {
+    --header-height: 110px;
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .header-img {
+    padding-top: 4px;
+    padding-right: 5px;
+  }
+  #header-img-2 {
+    display: none;
+  }
+  #header-img-3 {
+    display: block;
+    max-height: 30px;
+    padding-right: 5px;
+  }
+  .nav-bar {
+    margin-bottom: 0; /* ? */
+    padding-bottom: 0; /* ? */
+  }
+  .nav-link {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  #image-pool {
+    margin-top: var(--header-height); 
+  }
+  .section-item {
+    margin-left: 5%; margin-right: 5%;
+  }
+  .section-list-name {
+    margin-left: -2%;
+  }
+  .section-list {
+    margin-left: 5%; margin-right: 5%;
+  }
+  .section-r-side-image {
+    margin-left: 6%; 
+    align-self: flex-end; 
+  }
+  #sample-products {
+    align-items: center;
+    margin-left: auto; margin-right: auto;
+  }
+  .product {
+    margin-right: 0;
+  }
+}
+@media(max-width: 485px) {
+  body {
+    --header-height: 145px; 
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #nav-bar {
+    width: 115px; 
+    margin-left: 0; 
+  }
+  .nav-link {
+    margin-top: 0;
+    padding: 1px;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+  }
+}
+@media(max-width: 420px) {
+  h1 {
+    font-size: 22px;
+  }
+  #nav-bar {
+    margin-right: 2%; 
+    margin-bottom: 0px; /* Why is this not overriding setting above?? */
+    padding: 0;
+  }
+  .nav-link {
+    font-size: 12px;
+    margin-top: 0; margin-bottom: 0; /* ? */
+    padding: 1px;
+  }
+  #form {
+    flex-direction: column;
+  }
+  #email-container {
+    margin-left: 10px;
+    padding: 5px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 385px) { /* for Phones. LG seems to be 322px */
+  body {
+    --header-height: 115px; /* (1/21/19) */
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #header-company {
+    margin-top: 8px; 
+  }
+  #company-text {
+    font-size: 25px; 
+  }
+  #image-pool {
+    margin-top: var(--header-height); /* to get it right for Moto */
+  }
+  .popup-button {
+    font-size: 12px;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <div id='container'>
+      <header id='header'>
+        <div id='header-company'>
+          <img id='header-img' class='header-img' src='https://github.com/paroche/FCC/blob/master/Green-Heart.png?raw=true' alt='Green heart logo'>
+          <img id='header-img-2' class='header-img' src='https://github.com/paroche/FCC/blob/master/Green-Iron-Man.jpg?raw=true' alt='Green Iron Man Logo'>
+          <img id='header-img-3' class='header-img' src='https://github.com/paroche/FCC/blob/master/Little-Green-Hulk.jpg?raw=true' alt='Green Hulk Logo'>
+          <h1 id='company-text'>Bright-Green Machines</h1>
+        </div> <!-- header-company -->
+
+        <nav id='nav-bar'>
+          <a class='nav-link' href='#philosophy'>Philosophy</a>
+          <a class='nav-link' href='#profile'>Client Profile</a>
+          <a class='nav-link' href='#products'>Products</a>
+          <a class='nav-link' href='#why-buy'>Why buy from us?</a>
+        </nav>
+      </header>
+
+      <div id='main-body'>
+        <div id='image-pool'>
+          <figure><img class='image' src='https://github.com/paroche/FCC/blob/master/Green-BMW.jpg?raw=true' alt='Green Sports Car'></figure>
+          <figure><img class='image' src='https://github.com/paroche/FCC/blob/master/Green-Sewing-Machine.jpg?raw=true'></figure>
+          <figure><img class='image' src='https://github.com/paroche/FCC/blob/master/Green-Coffee-Maker.jpg?raw=true' alt='Green coffee maker'></figure>
+          <figure><img class='image' src='https://github.com/paroche/FCC/blob/master/Green-Lantern-Lantern.jpg?raw=true' alt='Green Lantern lantern'></figure>
+        </div> <!-- image-pool -->
+        <div id='intro'>
+          Your one-stop shop for all manner of life-changing, bright green machines to sooth your worries and give you the life you have always been told by advertisers that you deserve. We comb the world for the greenest, brightest, most pleasurable machines and bring them to your door. Remember, once you go green, you never feel mean.
+        </div>
+        <div id='sections'>
+          <span id='philosophy' class='anchor'></span>
+          <div class='section-item section-regular'>
+            <div class='section-name-with-image'>
+              <div class='section-regular-name'>Philosophy:</div>
+              <div class='section-image'>
+                <img id='philosophy-image-1' class='section-image' src='https://www.philosophytalk.org/sites/default/files/styles/large_blog__900x400_/public/philosophy.jpg?itok=cmVbjAcW' alt='The Thinker'> <!-- Not currently using -->
+                <img id='philosophy-image-2' class='section-image' src='https://github.com/paroche/FCC/blob/master/Hulk-as-The-Thinker.jpg?raw=true' alt='The Hulk as The Thinker'>
+              </div>
+            </div> <!-- section-name-with-image -->
+            <div class='section-blurb'>We think people need more bright-green machines in their lives, especially big pleasure ones. "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem...Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</div>
+          </div> <!-- philosophy -->
+
+          <span id='profile' class='anchor'></span>
+          <div class='section-item'>
+            <div class='list-with-picture'>
+              <div class='list-block'>
+                <p class='section-list-name'>Client Profile -- Do any or all of the below seem to fit you?</p>
+                <ul class='section-list'>
+                  <li>Do people have a tendency to dump on you?</li>
+                  <li>Does your group have more cavities than theirs?</li>
+                  <li>Do all the hippies seem to get the jump on you?</li>
+                  <li>Do you sleep alone when others sleep in pairs?</li>
+                  <li>Are you worried and depressed?</li>
+                  <li>Can't seem to get no rest?</li>
+                  <li> Then put our products to the test!</li>
+                </ul>
+              </div> <!-- list-block -->
+              <div><img  class='section-r-side-image' src='https://github.com/paroche/FCC/blob/master/Charlie-Brown-Hit-by-Pitch.jpg?raw=true' alt='Charlie Brown hit by pitch'></div>
+            </div> <!--list-with-picture -->
+          </div> <!-- criteria -->
+
+          <span id='products' class='anchor'></span>
+          <div class='section-item section-regular'>
+            <p class='section-regular-name'>Products:</p>
+            <p class='section-blurb'>We offer a wide range of bright-green products from many big manufacturers, such as those featured below:</p>
+          </div>
+          <div id='sample-products'>
+            <div class='product'>
+              <img class='product-image' src='https://github.com/paroche/FCC/blob/master/Green-Gurdy.jpg?raw=true' alt='Woman with hurdy-gurdy'>
+              <a class='product-link' href='https://www.youtube.com/watch?v=jgXmxQQW5F4' target='_blank'>Watch one of our Reps explain the enhancement details of this custom green hurdy-gurdy</a>
+              <div class='product-blurb'></div>
+            </div> <!-- product -->
+            <div class='product last'>
+              <img class='product-image' src='https://github.com/paroche/FCC/blob/master/Green-Ducks.jpg?raw=true' alt='Green ducks'/>
+              <a class='product-link' href='http://www.djcalls.com/s/transparent-green-new-style-duck-call.html' target='_blank'>See how many of these babies you can attract with our new bright-green duck call!</a>
+              <p class='product-link'>(Ducks sold seperately)</p>
+              <div class='product-blurb'></div>
+            </div> <!-- product -->
+          </div> <!-- sample products -->
+
+
+          <span id='why-buy' class='anchor'></span>
+          <div class='section-item'>
+            <p class='section-list-name'>Why buy our products? Because, well:</p>
+            <ul class='section-list'>
+              <li>There's no need to complain</li>
+              <li>We'll eliminate your pain</li>
+              <li>We can neutralize your brain</li>
+              <li>You'll feel just fine...</li>
+              <li>We can end your daily strife</li>
+              <li>At a reasonable price</li>
+              <li>You've seen them advertised in LIFE</li>
+              <li>You'll feel just fine....Now,</li>
+              <li>... buy a new bright-green pleasure machine!</li>
+            </ul>
+          </div>
+
+        </div> <!-- sections -->
+
+        <div class='video-container'>
+          <iframe id='video' width="640" height="480" src="https://www.youtube.com/embed/lotQ5yp2lEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen name='Simon and Garfunkle singing "Big Bright-Green Pleasure Machine"'></iframe>
+        </div> <!-- video-container -->
+        <p class='video-caption'>Our Theme Song and Inspiration<sup class='sup'>1</sup></p>
+        <p class='video-caption-footer'><sup>1</sup>(not an endorsement)</p>
+
+        <form id='form' action='' method='get' target='https://www.freecodecamp.com/email-submit'>
+          <div id='email-container'>
+            <label for='email' id='email-label'>If you'd like to receive big, bright-green updates, please enter your email address:</label>
+            <input id='email' name='email' type='email' required placeholder='sobright.green@machine.com'/>
+          </div> <!-- email-container -->
+          <div id='submission-container'>
+            <div id='submit-container'><input id='submit' type='submit' class='submission' value='Submit'></input></div>
+          <div id='sub-submit'><p>(You'll feel just fine)</p><p>(Now just let go!)</p></div>
+          </div> <!-- submission-container -->
+        </form>
+
+      <div id='bottom-links'>
+<!--The JS-free popup functionality on these bottom links (those in this division) (said links being cute, but not part of the requirements for this project) is adapted from "Popup/Modal Windows with JavaScript" by Prakash:
+https://codepen.io/imprakash/pen/GgNMXO
+If there is a problem with this please notify me and I will adjust it.
+-->
+        <div id='testimonials'>
+          <div class='popup-box'>
+            <a class='popup-button' href='#testimonials-popup' data-desc='See what our customers are saying!' style='--before-height: height: 5em; --before-top: -5em'>Testimonials</a>
+          </div>
+          <div id='testimonials-popup' class='popup-overlay'>
+            <div class='popup' style='--popup-width: 45%; --popup-width: calc(12.5em + 29vw); --popup-l-offset: 5%; --popup-r-offset: auto'>
+              <h2>What our customers are saying:</h2>
+              <a class='close-popup' href='#testimonials'>&times;</a>
+              <div class='popup-content'>
+                <ul id='testimonial-ul'>
+                  <li>"I got a brand new (and more productive) bag."</li><li class='attribution'>-- James, in Georgia</li>
+                  <li>"I used to worry if my girlfriend was just a little late. Now, I'm like 'meh'!"</li><li class='attribution'>-- Manny, in Manhattan</li>
+                  <li>"I no longer nervously await the blows of cruel fate. In fact, fate better watch out for me!"</li><li class='attribution'>-- Evel, in Idaho</li>
+                  <li>"My checks have stopped bouncing -- hoo-hoo!"</li><li class='attribution'>-- Tigger, in 100 Acre Wood</li>
+                  <li>"Do you have anything in orange?"</li><li class='attribution'>-- Don, in D.C.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id='about-us'>
+          <div class='popup-box'>
+            <a class='popup-button' href='#about-us-popup' data-desc='Click to learn more!' style='--before-height: 3.5em; --before-top: -3.8em'>About us</a>
+          </div>
+
+          <div id='about-us-popup' class='popup-overlay'>
+            <div class='popup' style='--popup-width: 30%; --popup-width: 19em; --popup-l-offset: 36%; --popup-l-offset: calc(48% - (var(--popup-width) / 2) ); --popup-r-offset: auto;'>
+              <h2>Who we are:</h2>
+              <a class='close-popup' href='#about-us'>&times;</a>
+              <div class='popup-content'>
+                We are really nice people. You would be perfectly happy to introduce us to your parents.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id='paul-simon'>
+          <div class='popup-box'>
+            <a class='popup-button' href='#paul-simon-popup' data-desc='Click for our Special Message for Paul Simon!' style='--before-height: 3.4em; --before-top: -3.8em'>If you are Paul Simon</a>
+          </div>
+          <div id='paul-simon-popup' class='popup-overlay'>
+            <div class='popup' style='--popup-width: 12em; --popup-l-offset: auto; --popup-r-offset: 8vw; --popup-r-offset: calc(13vw - 2.2em)'>
+              <h2>If you are Paul Simon</h2>
+              <a class='close-popup' href='#paul-simon'>&times;</a>
+              <div class='popup-content'>Hi Paul! Please don't sue us!
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- bottom-links -->
+
+    </div><!-- container -->
+
+  </body>
+</html>
