@@ -21,7 +21,7 @@ body {
 
 #banner {
   /* position: relative; */
-  background-image: url("https://github.com/paroche/FCC/blob/master/Library%20at%20Alexandria%20Qv3DjzQxeKpTDAqzQlyeajfdCOnOAdoHm_pPBde4fcg.jpg?raw=true");
+  background-image: url('https://github.com/paroche/FCC/blob/master/Library%20at%20Alexandria%20Qv3DjzQxeKpTDAqzQlyeajfdCOnOAdoHm_pPBde4fcg.jpg?raw=true');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,7 @@ body {
 #banner h2 {
   color: rgb(250, 237, 164);
   /* color: rgb(255, 216, 25); */
-  text-shadow: 20px, 20px, 5px, #0000FF;
+  text-shadow: 20px, 20px, 5px, #0000ff;
   /* this isn't doing anything */
 }
 
@@ -65,8 +65,8 @@ body {
   --main2-color: hsl(0, 0%, 0%);
   /* = #004949 Darker B-G. w #BDE0DF gives 7.27:1 contrast */
   --main2-color: black;
-  margin: 1.0%;
-  margin: 0.3%, 1.0%;
+  margin: 1%;
+  margin: 0.3%, 1%;
   margin: 0%, 0.5%;
   padding: 17px 8% 20px 8%;
   background-color: var(--main2-background);
@@ -82,6 +82,10 @@ h2 {
   color: black;
   text-shadow: 2px, 2px, 4px, green;
   /* doesn't seem to do anything here either */
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 .flex-center {
@@ -171,11 +175,11 @@ a:after {
 }
 
 a:hover:after {
-  height: .8em;
+  height: 0.8em;
   width: 100%;
   background-color: var(--main2-background);
   /*background-color: #CEF; /* */
-  opacity: .7;
+  opacity: 0.7;
   opacity: 1;
   color: #005500;
   color: #000800;
@@ -219,7 +223,7 @@ border-radius: 8px;*/
   height: auto;
   border-radius: 20px;
   margin: 5px 0 21px 0;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 #more-info-header {
@@ -235,7 +239,7 @@ border-radius: 8px;*/
   font-size: 18px;
 }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
   #main2 {
     max-width: 1400px;
     margin-left: auto;
@@ -243,7 +247,7 @@ border-radius: 8px;*/
   }
 }
 
-@media(max-width: 860px) {
+@media (max-width: 860px) {
   .img-with-caption {
     margin-right: 0;
   }
@@ -276,14 +280,14 @@ border-radius: 8px;*/
   }
 }
 
-@media(max-width: 580px) {
+@media (max-width: 580px) {
   #main2 {
     margin: 0.6%;
     padding: 17px 2% 20px 2%;
   }
 }
 
-@media(max-width: 380px) {
+@media (max-width: 380px) {
   #main2 {
     padding-top: 1px;
     /* oddly, doesn't change anything unless set to 0 */
