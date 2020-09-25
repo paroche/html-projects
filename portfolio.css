@@ -1,0 +1,243 @@
+* {
+  --test-border-width: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --welcome-background-color: rgb(255, 255, 255);
+  --projects-background-color: #EEE;
+  --nav-header-height: 2.2em;
+  --neg-nav-header-height: calc(- --nav-header-height);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#nav-header {
+  border: var(--test-border-width) solid blue;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: var(--nav-header-height);
+  background-color: var(--welcome-background-color);
+}
+
+#navbar {
+  border: var(--test-border-width) solid red;
+  display: flex;
+  margin-top: .5em;
+  /* */
+  margin-right: 2%;
+  justify-content: space-around;
+}
+
+.nav-item {
+  margin-right: 25px;
+}
+
+a {
+  color: #03A;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1BD;
+}
+
+a:hover {
+  color: #03C;
+}
+
+a:active {
+  color: #0BB;
+}
+
+#welcome-section {
+  height: 100vh;
+  background-color: var(--welcome-background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* maybe move background image to Contact section */
+
+
+/*#welcome-section::after { 
+content: '';
+background-image: url('https://github.com/paroche/FCC/blob/master/Fox-Logo-Background.jpg?raw=true'); 
+opacity: 0.15;
+background-position: left;
+background-size: 30em;
+z-index: 0;
+background-repeat: space;
+position: absolute; top: var(--nav-header-height); bottom: 0; left: 0; right: 0;
+} */
+
+.bg-container {
+  /*position: relative; /* */
+  overflow: hidden;
+}
+
+.bg-container img {
+  /*position: absolute; 
+left: 0;
+top: 0; /* */
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  /*Makes responsive, but I prefer w/out */
+  /*opacity: .85;/* w/ negative z-index seems this has to be higher to show thru? */
+}
+
+#welcome-body {
+  /*min-width: 25%; min-height: 50%; /* */
+  /*padding: 5px; /* */
+  position: absolute;
+  /* */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid; /* */
+}
+
+#welcome-body h1 {
+  font-size: 42px;
+  font-size: calc(30px + 1vw);
+  /* */
+  margin-bottom: .25em;
+}
+
+#welcome-body h2 {
+  margin-top: .2em;
+  font-size: 32px;
+  font-size: calc(25px + 1vw);
+  /* */
+}
+
+.logo {
+  width: calc(8em + 3vw);
+  /* keeps it in line w/ size of header? */
+  opacity: .85;
+  margin-bottom: .7em;
+  border-radius: 10%;
+  box-shadow: 0 0 16px 1px #8B8;
+  /* , 0 0 16px 4px #DDD; */
+}
+
+#projects {
+  background-color: var(--projects-background-color);
+  padding-top: var(--nav-header-height);
+  margin-top: var(--neg-nav-header-height);
+  /* This is needed to keep from going under fixed nav header, and separate from tile container below so will not pad up with tile-container color. At least, seems to be necessary */
+}
+
+#projects-inner-container {
+  background-color: var(--projects-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+#projects-inner-container h2 {
+  margin-bottom: 1.5em;
+}
+
+#project-tile-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project-tile {
+  background-color: #BBF;
+  background-color: #999;
+  /* */
+  border: 1px solid #8A8;
+  /*#2A2; */
+  /*border: 1px solid #9B9; /* */
+  height: 200px;
+  width: 300px;
+  height: 194px;
+  height: auto;
+  /*height: 196px;/* */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+  /* ? */
+  /*background-color: var(--projects-background-color); border: 0px; /* */
+}
+
+.img-with-caption {
+  background-color: #DDD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+.captions {
+  margin-top: 5.1px;
+  font-size: 16px;
+  font-size: var(--caption-font-size);
+  /* */
+  color: #306;
+  color: #104;
+  /* */
+}
+
+#eratosthenes {
+  background-color: hsl(178, 37%, 81%);
+  background-color: #CDD;
+  /* */
+}
+
+#lotr-survey {
+  background-color: #DDE;
+}
+
+#product-landing-page {
+  background-color: #CDC;
+}
+
+#technical-documentation {
+  background-color: #CCC;
+}
+
+#contact {
+  height: 990vh;
+  width: 100%;
+  padding-top: calc(var(--nav-header-height) + 2em);
+  /* */
+  margin-top: var(--neg-nav-header-height);
+  /* */
+  text-align: center;
+}
+
+#contact h2 {
+  margin-top: .4em;
+}
+
+#contact h3 {
+  margin-top: 8.8px;
+}
+
+#contact-links {
+  margin-top: 4em;
+}
+
+@media (max-width: 400px) {
+  .captions {
+    font-size: var(--caption-small-font-size);
+  }
+}
