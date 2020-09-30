@@ -223,6 +223,7 @@ top: 0; /* */
 .project__description__content__header {
   font-size: 24px;
   font-weight: bold;
+  margin-top: .3em;
   margin-bottom: 1em
 }
 
