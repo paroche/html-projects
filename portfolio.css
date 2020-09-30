@@ -220,6 +220,12 @@ top: 0; /* */
   /* margin: 1em; */
 }
 
+.project__description__content__header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1em
+}
+
 .project-tile {
   background-color: #BBF;
   background-color: #999;
