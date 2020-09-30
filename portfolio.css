@@ -89,21 +89,6 @@ a:active {
   text-shadow: 2px 2px #fff
 }
 
-
-/* maybe move background image to Contact section */
-
-
-/*#welcome-section::after { 
-content: '';
-background-image: url('https://github.com/paroche/FCC/blob/master/Fox-Logo-Background.jpg?raw=true'); 
-opacity: 0.15;
-background-position: left;
-background-size: 30em;
-z-index: 0;
-background-repeat: space;
-position: absolute; top: var(--nav-header-height); bottom: 0; left: 0; right: 0;
-} */
-
 .bg-container {
   /*position: relative; /* */
   overflow: hidden;

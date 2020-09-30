@@ -44,7 +44,7 @@ body {
 #banner h2 {
   color: rgb(250, 237, 164);
   /* color: rgb(255, 216, 25); */
-  text-shadow: 20px, 20px, 5px, #0000ff;
+  /* text-shadow: 20px, 20px, 5px, #0000ff; */
   /* this isn't doing anything */
 }
 
@@ -80,7 +80,7 @@ h1,
 h2 {
   text-align: center;
   color: black;
-  text-shadow: 2px, 2px, 4px, green;
+  /* text-shadow: 2px, 2px, 4px, green; */
   /* doesn't seem to do anything here either */
 }
 
@@ -101,10 +101,12 @@ li {
 #title h1 {
   font-size: 54px;
   margin-top: 0;
+  text-shadow: 3px 3px 1px black;
 }
 
 #title h2 {
   font-size: 40px;
+  text-shadow: 3px 3px 1px black;
 }
 
 #img-div {
@@ -157,10 +159,14 @@ img {
   width: 100%;
   text-align: center;
   color: #f3c369;
+  /* font-weight: bold; */
+  text-shadow: -1px -1px 1px #000;
 }
 
 a {
   position: relative;
+  text-decoration: none;
+  /* new */
 }
 
 a:after {
