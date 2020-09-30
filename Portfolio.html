@@ -9,11 +9,8 @@
 
   <head>
     <meta charset='UTF-8'>
-    <title>My Portfolio</title>
+    <title>Peter Roche Portfolio</title>
     <link rel='stylesheet' href='./portfolio.css' />
-    <style>
-
-    </style>
   </head>
 
   <body>
@@ -27,78 +24,160 @@
 
     <div id='welcome-section'>
       <div class='bg-container'>
-        <!-- <img class='bg-image' src='https://github.com/paroche/FCC/blob/master/Fox-Logo-Background.jpg?raw=true'/> <!-- -->
       </div>
-      <div id='welcome-body'>
-        <h1>Peter Roche</h1>
-        <img src='https://github.com/paroche/FCC/blob/master/Fox-Logo-3.jpg?raw=true' class='logo' alt='Fox logo'>
-        <h2>Portfolio</h2>
-      </div>
-    </div>
+      <div id="welcome-body-container">
+        <div id='welcome-body'>
+          <h1>Peter Roche</h1>
 
-    <!-- to add 
-n
-    "Fictional University" WordPress site (on SiteGround)     http://peterr1.sgedu.site/
-
-    "Natours" guided nature tour (fictional) site (on heroku): https://natours-blue.herokuapp.com/
-    
-    "Complex App" simple social network app built with React site (backend on heroku, frontend on Netlify): https://elated-brattain-021507.netlify.app/
-
-
-    -->
-
-    <!-- div#projects>div.project-tile*4(tab) -->
-    <div id="projects">
-
-      <div id='projects-inner-container'>
-        <h2>Static HTML/CSS Sites . . .</h2>
-        <div id='project-tile-container'>
-
-          <div class="project-tile" id='eratosthenes'>
-            <a href='./EratosthenesTribute.html' target='_blank' alt='Eratosthenes Tribute Page'>
-              <figure class='img-with-caption'>
-                <img src='https://github.com/paroche/FCC/blob/master/Eratosthenes-Tribute.jpg?raw=true' class='header-images' alt='Eratosthenes Tribute Page Image' />
-                <figcaption class='captions'>Eratosthenes Tribute Page</figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class='project-tile' id='lotr-survey'>
-            <a href='./LOTR-Survey.html' target='_blank' alt='LOTR Survey'>
-              <figure class='img-with-caption'>
-                <img src='https://github.com/paroche/FCC/blob/master/LOTR-Survey-1.jpg?raw=true' class='header-images' alt='LOTR Survey Page Image' />
-                <figcaption class='captions'>LOTR Advanced Geek Survey</figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class='project-tile' id='product-landing-page'>
-            <a href='./BrightGreenMachines.html' target='_blank' alt='Product Landing Page (Bright-Green Machines)'>
-              <figure class='img-with-caption'>
-                <img src='https://github.com/paroche/FCC/blob/master/Bright-Green-Machines.jpg?raw=true' alt='Bright Green Machines Product Landing Page Image' />
-                <figcaption class='captions' style='--caption-font-size: 14px; --caption-small-font-size: 12px'>'Bright-Green Machines' Product Landing Page</figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class='project-tile' id='technical-documentation'>
-            <a href='./CenteringTextAndImagesInHTML.html' target='_blank' alt='Technical Documentation - Centering Text and Images in HTML/CSS'>
-              <figure class='img-with-caption'>
-                <img src='https://github.com/paroche/FCC/blob/master/Centering-Text-and-Images.jpg?raw=true' alt='Technical Documentation - Centering - Image' />
-                <figcaption class='captions' style='--caption-font-size: 12px; --caption-small-font-size: 11px'>Technical Documentation - Centering in HTML/CSS</figcaption>
-              </figure>
-            </a>
-          </div>
-
+          <h2>Portfolio of Student Projects</h2>
         </div>
       </div>
     </div>
 
-    <div id='contact'>
-      <h2>If you like what you see...</h2>
-      <h3>Here's how to find me</h3>
-      <div id='contact-links'>
-        <a id='profile-link' href='https://www.freecodecamp.org/fcc31eefc91-eba7-43e5-a26c-c358ba796595' target='_blank'>FCC Profile</a>
+    <div id="projects">
+      <div class='projects__inner-container'>
+
+        <section id="dynamic-sites" class="section">
+          <div class="section__header">
+            <span id="dynamic">Dynamic Sites</span>
+          </div>
+
+          <div class='project-container-desc-tile'>
+            <div class="project__description">
+              <div class="project__description__content">"Menutopia" is a pure vanilla JavaScript site built using the MVC model in the course of completing Jonas Schmedtmann's "<a href='https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/12567774#overview'>The Complete JavaScript Course 2020: Build Real Projects!</a>"
+                (Where it is called "forkify"). It uses an API to pull recipes from a wide variety of websites, parses the ingredient lists, allows users to track favorite recipes, adjust portions, and add recipe ingredients to their shopping list. (The
+                purpose of the course was to teach JavaScript, not html & css, so the templates for the html and the css were mostly provided -- and the site is not responsive.)
+              </div>
+            </div>
+            <div class="project-tile" id='menutopia'>
+              <a href='https://jolly-kowalevski-6c011b.netlify.app/#47923' target='_blank' alt='Menutopia Recipe Lookup'>
+                <figure class='img-with-caption'>
+                  <img src='img/menutopia.png' class='header-images' alt='Menutopia Recipe Site Image' />
+                  <figcaption class='captions'>Menutopia Recipe Lookup</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+
+          <div class='project-container-desc-tile'>
+            <div class="project__description">
+              <div class="project__description__content">"Natours" is a fictional nature tours site created in the course of taking Jonas Schemedtmann's course "<a href="https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/learn/lecture/15080914?start=165#overview">Node.js, Express, MongoDB & More: The Complete Bootcamp 2020</a>".
+                It uses JavaScript / Node.js / Node Express / MongoDB / Mongoose for the API and backend, and Pug Templates to render the front end. It has its own API which can be accessed its data from other sites and which it also uses to handle requests
+                from the front end user. It allows users to look at the tours, see maps of where they go, book tours through Stripe credit card processing, add reviews of tours, etc. It provides multiple levels of user security, including email verification
+                for account creation. Not all user features have yet been implemented. The site is beautiful but not responsive.
+              </div>
+            </div>
+            <div class="project-tile" id='natours'>
+              <a href='https://natours-blue.herokuapp.com/' target='_blank' alt='Natours site'>
+                <figure class='img-with-caption'>
+                  <img src='img/natours.png' class='header-images' alt='Natours site image' />
+                  <figcaption class='captions'>Natours - Tours in Nature</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+
+          <div class='project-container-desc-tile'>
+            <div class="project__description">
+              <p class="project__description__content">"Fictional University" is a, well, fictional university site built in WordPress for the Udemy tutorial "<a href='https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/learn/lecture/22417904#overview'>Become a WordPress Developer: Unlocking Power with Code</a>",
+                where visitors can create accounts and log in, view upcoming events and blog posts, create their own blog posts, view programs, professors, and campuses (with Google Maps interface). It is currently hosted at SiteGround, until late October
+                2020.
+
+              </p>
+            </div>
+            <div class="project-tile" id='fictional-university'>
+              <a href='http://peterr1.sgedu.site/' target='_blank' alt='Fictional University'>
+                <figure class='img-with-caption'>
+                  <img src='img/fictionalUniversity.png' class='header-images' alt='Menutopia Recipe Lookup Image' />
+                  <figcaption class='captions'>Fictional University</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+
+          <div class='project-container-desc-tile'>
+            <div class="project__description">
+              <div class="project__description__content">"Reactions" is a simple social media site built for Brad Schmitt's "<a href="https://www.udemy.com/course/react-for-the-rest-of-us/learn/lecture/18775922?start=15#overview">React for the Rest of Us</a>" course. It is a single-page app built
+                using modern React features (e.g. hooks) in a node.js environment. It provides users the ability to log in, create and mofify posts, follow other users, search for posts by key words, view their own and others' profiles, and enter the
+                site chat room. The site is reasonably, though I wouldn't say perfectly, responsive.
+              </div>
+            </div>
+            <div class="project-tile" id='reactions'>
+              <a href='https://elated-brattain-021507.netlify.app/' target='_blank' alt='Reactions site'>
+                <figure class='img-with-caption'>
+                  <img src='img/reactions.png' class='header-images' alt='Reactions image' />
+                  <figcaption class='captions'>Reactions - Simple Social Media Site</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="section__footer">The above were developed in the course of following various tutorials on Udemy, where since the goal was to teach the specific technologies, much of the html and css was already provided, so I am responsible for only parts of their visual layouts.</div>
+        </section>
+
+        <section id="static-sites" class="section">
+          <h2 class="section__header">Static Sites</h2>
+          <h3 class="section__subheader">These pure html/css sites were initially developed for FreeCodeCamp's "Responsive Web Design Certification". Their design is totally my own, within the requirements given for the tasks, and they are all quite responsive.</h3>
+          <div class='project-container-tiles'>
+
+            <div class="project-tile" id='eratosthenes'>
+              <a href='./EratosthenesTribute.html' target='_blank' alt='Eratosthenes Tribute Page'>
+                <figure class='img-with-caption'>
+                  <img src='./img/Eratosthenes-Tribute.png' class='header-images' alt='Eratosthenes Tribute Page Image' />
+                  <figcaption class='captions'>Eratosthenes Tribute Page</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='lotr-survey'>
+              <a href='./LOTR-Survey.html' target='_blank' alt='LOTR Survey'>
+                <figure class='img-with-caption'>
+                  <img src='./img/LOTR-Survey.png' class='header-images' alt='LOTR Survey Page Image' />
+                  <figcaption class='captions'>LOTR Advanced Geek Survey</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='product-landing-page'>
+              <a href='./BrightGreenMachines.html' target='_blank' alt='Product Landing Page (Bright-Green Machines)'>
+                <figure class='img-with-caption'>
+                  <img src='./img/Bright-Green-Machines.png' alt='Bright Green Machines Product Landing Page Image' />
+                  <figcaption class='captions' style='--caption-font-size: 14px; --caption-small-font-size: 12px'>'Bright-Green Machines' Product Landing Page</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='technical-documentation'>
+              <a href='./CenteringTextAndImagesInHTML.html' target='_blank' alt='Technical Documentation - Centering Text and Images in HTML/CSS'>
+                <figure class='img-with-caption'>
+                  <img src='./img/Centering-Text-and-Images.png' alt='Technical Documentation - Centering - Image' />
+                  <figcaption class='captions' style='--caption-font-size: 12px; --caption-small-font-size: 11px'>Technical Documentation - Centering in HTML/CSS</figcaption>
+                </figure>
+              </a>
+            </div>
+
+          </div>
       </div>
     </div>
+
+
+    </section>
+
+    <div id='contact'>
+      <h2>Contact Information</h2>
+      <h3>Offer me a job, or just say hi!</h3>
+      <div class="contact__info">
+        <p>Peter Roche</p>
+        <p>2916-C Avenida Alamosa</p>
+        <p>Santa Fe, NM 87507</p>
+        <p>505-474-2801</p>
+        <p>sunmtnsft@aol.com</p>
+      </div>
+
+      <div id='contact__links'>
+        <a id='profile-link' href='https://github.com/settings/profile target=' _blank '>GitHub Profile</a>
+        <!-- <a id='profile-link ' href='https://www.freecodecamp.org/fcc31eefc91-eba7-43e5-a26c-c358ba796595 ' target='_blank '>FCC Profile</a> -->
+      </div>
+    </div>
+
+
   </body>
