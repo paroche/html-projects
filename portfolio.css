@@ -152,12 +152,12 @@ top: 0; /* */
   .section__subheader {
     text-align: center;
     font-size: 1.3em;
-    margin: 0 30px 20px 30px;
+    margin: 30px 30px 20px 30px;
     padding-bottom: 20px;
   }
   
   .section__footer {
-    font-size: 24px;
+    font-size: 20px;
     padding: 0;
     margin: 0 30px 20px 30px;
   }
@@ -215,7 +215,7 @@ top: 0; /* */
   .project__description__content__header {
     font-size: 24px;
     font-weight: bold;
-    margin-top: .3em;
+    margin-top: .2em;
     margin-bottom: 1em
   }
   
@@ -383,16 +383,28 @@ top: 0; /* */
     /* */
     transform: scale(1.05);
     transition: all 1.2s ease;
-    /* animation: hover-pulse 3s infinite;
-  animation-delay: 4s;
-  to start after transition */
+    animation: hover-pulse 3s infinite;
+    animation-delay: 5s;
+  }
+  
+  #static:hover {
+    color: #0200aa;
+    color: rgb(14, 7, 122);
+    padding: 10px 18px;
+    padding: 5px;
+    overflow: hidden;
+    border: solid rgb(137, 170, 197);
+    border-width: 6px 10px 8px 10px;
+    box-shadow: 0 0 8px 6px rgb(88, 146, 156) inset, 5px 0 15px 15px rgb(139, 135, 135);
+    transform: scale(1.25);
+    transition: all .2s ease;
   }
   
   @keyframes hover-pulse {
     from {
       color: crimson;
-      height: var(--sub-height1);
-      width: var(--sub-width1);
+      height: 150px;
+      width: 250px;
       font-size: 5px;
       font-weight: bold;
       padding-top: 16px;
@@ -400,8 +412,8 @@ top: 0; /* */
     }
     to {
       color: red;
-      height: var(--sub-height2);
-      width: var(--sub-width2);
+      height: 155px;
+      width: 265px;
       font-size: 7px;
       font-weight: bold;
       padding-top: 20px;

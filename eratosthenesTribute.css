@@ -9,6 +9,8 @@ Color/background on banner pictures. Maybe overlays to mute some of them.
 body {
   overflow-x: hidden;
   /* w/out this have slide bar at bottom. Same happened w/ Green-Machine page" */
+  /* font-family: 'Montserrat', sans-serif; */
+  /* testing */
 }
 
 #main {
@@ -160,7 +162,7 @@ img {
   text-align: center;
   color: #f3c369;
   /* font-weight: bold; */
-  text-shadow: -1px -1px 1px #000;
+  text-shadow: -1px -1px 5px #000;
 }
 
 a {
