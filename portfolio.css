@@ -226,6 +226,7 @@ a:active {
 
 .project-tile {
   width: 30%;
+  width: calc(25% + 15em);
   height: auto;
   display: flex;
   justify-content: center;
@@ -318,19 +319,7 @@ img {
 
 /* responsive */
 
-@media (max-width: 1500px) {
-  .project-tile {
-    width: 35%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .project-tile {
-    width: 40%;
-  }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .project-container-desc-tile {
     width: 90%;
     margin: 1.5em;
