@@ -1,7 +1,10 @@
 <DOCTYPE html>
-  <!--Working Version 2019-01-21-->
-  <!--Eratosthenese link updated 2019-08-19-->
-  <!--Note: most of the images contained herein do not belong to me or are in part using images that do not belong to me. Since this is a non-comercial site for the purpose of demonstration, I hope that is OK. If not, please let me know -->
+  <!--To Do:
+  Transition on tile description pop-ups
+  Add container for caption, and use box shadowing?
+  
+  
+  -->
 
   <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
 
@@ -134,7 +137,7 @@
           <div class="section__subheader">These pure html/css sites were initially developed for FreeCodeCamp's "Responsive Web Design Certification". Their design is totally my own, within the requirements given for the tasks, and they are all quite responsive.</div>
           <div class='project-container-tiles'>
 
-            <div class="project-tile" id='eratosthenes'>
+            <div class="project-tile" id='eratosthenes' data-tiledesc="tribute">
               <a href='./EratosthenesTribute.html' alt='Eratosthenes Tribute Page'>
                 <figure class='img-with-caption'>
                   <img src='./img/Eratosthenes-Tribute.png' class='header-images' alt='Eratosthenes Tribute Page Image' />
@@ -143,7 +146,7 @@
               </a>
             </div>
 
-            <div class='project-tile' id='lotr-survey'>
+            <div class='project-tile' id='lotr-survey' data-tiledesc="survey">
               <a href='./LOTR-Survey.html' alt='LOTR Survey'>
                 <figure class='img-with-caption'>
                   <img src='./img/LOTR-Survey.png' class='header-images' alt='LOTR Survey Page Image' />
@@ -152,7 +155,7 @@
               </a>
             </div>
 
-            <div class='project-tile' id='product-landing-page'>
+            <div class='project-tile' id='product-landing-page' data-tiledesc="landing">
               <a href='./BrightGreenMachines.html' alt='Product Landing Page (Bright-Green Machines)'>
                 <figure class='img-with-caption'>
                   <img src='./img/Bright-Green-Machines.png' alt='Bright Green Machines Product Landing Page Image' />
@@ -161,7 +164,7 @@
               </a>
             </div>
 
-            <div class='project-tile' id='technical-documentation'>
+            <div class='project-tile' id='technical-documentation' data-tiledesc="techdoc">
               <a href='./CenteringTextAndImagesInHTML.html' alt='Technical Documentation - Centering Text and Images in HTML/CSS'>
                 <figure class='img-with-caption'>
                   <img src='./img/Centering-Text-and-Images.png' alt='Technical Documentation - Centering - Image' />
@@ -171,7 +174,7 @@
             </div>
 
 
-            <div class='project-tile' id='portfolio'>
+            <div class='project-tile' id='portfolio' data-tiledesc="portfolio">
               <a href='./Portfolio.html' alt="Peter Roche's Portfolio">
                 <figure class='img-with-caption'>
                   <img src='./img/Portfolio.png' alt='Peter Roche Portfolio' />
@@ -202,4 +205,74 @@
       </div>
     </div>
 
+    <script>
+      let tileDescElem;
+
+      document.onmouseover = function(event) {
+
+        let targetDiv = event.target.closest('div');
+        // console.log(targetDiv);
+        //     <div class='project-tile' id='portfolio' data-tiledesc="portfolio">
+        if (!targetDiv) return; // don't see why would need this
+        // if we have tileDesc HTML...
+        let tileDescContent = targetDiv.dataset.tiledesc;
+        if (!tileDescContent) return;
+
+        // ...create the tileDesc element
+        // console.log(tileDescContent); // t
+        tileDescElem = document.createElement('div');
+        tileDescElem.id = 'tile-desc';
+        tileDescElem.className = 'tile-desc-before';
+        let tileDescHtml;
+        switch (tileDescContent) {
+          case "tribute":
+            tileDescHtml = 'We were given the assignment of creating a "Tribute Page". I chose this guy, because I thought what he did was cool.';
+            break;
+          case "survey":
+            tileDescHtml = "A survey page, to practice forms and the like. The background image still cracks me up. Again, knowledge of the subject helps with appreciation. If you vist the page (just click on the image!), be sure to hover over the submit button for 10 seconds or so.";
+            break;
+          case "landing":
+            tileDescHtml = 'My solution for the "Product Landing Page" project. It helps a lot with the appreciation of the subtle inside references if you are familiar with the lyrics to Simon and Garfunkle\'s "The Big Bright Green Pleasure Machine".';
+            break;
+          case "techdoc":
+            tileDescHtml = 'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. I still use it as a reference sometimes.';
+            break;
+          case "portfolio":
+            tileDescHtml = "This very page, or at least it's primitive prototype, was an FCC project. Though of course this site isn't totally static, in that this very message is brought to you courtesy of JavaScript.";
+            break;
+        }
+
+        tileDescElem.innerHTML = tileDescHtml;
+        document.body.append(tileDescElem);
+
+        setTimeout(() => {
+          let tileDesc = document.getElementById('tile-desc');
+          // console.log(tileDesc);
+          if (tileDesc) tileDesc.classList.add('tile-desc-after');
+        }, 1000)
+
+
+        // position it above the annotated element (top-center)
+        let coords = targetDiv.getBoundingClientRect();
+
+        let left = coords.left + (targetDiv.offsetWidth - tileDescElem.offsetWidth) / 2;
+        if (left < 0) left = 0; // don't cross the left window edge
+        left = Math.max(left, 15); // t
+
+        let top = coords.top - tileDescElem.offsetHeight - 5;
+        if (top < 0) { // if crossing the top window edge, show below instead
+          top = coords.top + targetDiv.offsetHeight + 5;
+        }
+
+        tileDescElem.style.left = left + 'px';
+        tileDescElem.style.top = top + 'px';
+      };
+
+      document.onmouseout = function(e) {
+        if (tileDescElem) {
+          tileDescElem.remove();
+          tileDescElem = null;
+        }
+      };
+    </script>
   </body>
