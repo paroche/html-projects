@@ -221,6 +221,7 @@ a:active {
 .project__description__content__header {
   font-size: 24px;
   font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: bold;
   margin-top: .2em;
   margin-bottom: 1em
@@ -417,7 +418,7 @@ img {
 
 /* Tile Desc Popup */
 
-.tile-desc-before {
+.popup-before {
   position: fixed;
   padding: 10px 20px;
   border: 1px solid #b3c9ce;
@@ -432,6 +433,6 @@ img {
   transition: all 0.75s ease;
 }
 
-.tile-desc-after {
+.popup-after {
   opacity: 1;
 }
