@@ -94,7 +94,7 @@
               <div class="project__description__content">
                 <div class="project__description__content__header">
                   University Web Site -- WordPress</div>
-                <p>"Fictional University" is a, well, fictional university site built in WordPress for the Brad Schmitt' tutorial "<a class="udemy-link" href='https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/learn/lecture/22417904#overview'>Become a WordPress Developer: Unlocking Power with Code</a>",
+                <p>"Fictional University" is a, well, fictional university site built in WordPress for the Brad Schiff' tutorial "<a class="udemy-link" href='https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/learn/lecture/22417904#overview'>Become a WordPress Developer: Unlocking Power with Code</a>",
                   where visitors can create accounts and log in, view upcoming events and blog posts, create their own blog posts, view programs, professors, and campuses (with Google Maps interface).
                   <p>
 
@@ -115,7 +115,7 @@
               <div class="project__description__content">
                 <div class="project__description__content__header">
                   Social Networking Site -- React.js</div>
-                <p>"Reactions" is a simple social media site built for Brad Schmitt's "<a class="udemy-link" href="https://www.udemy.com/course/react-for-the-rest-of-us/learn/lecture/18775922?start=15#overview">React for the Rest of Us</a>" course. It is
+                <p>"Reactions" is a simple social media site built for Brad Schiff's "<a class="udemy-link" href="https://www.udemy.com/course/react-for-the-rest-of-us/learn/lecture/18775922?start=15#overview">React for the Rest of Us</a>" course. It is
                   a single-page app built using modern React features (e.g. hooks) in a node.js environment. It provides users the ability to log in, create and mofify posts, follow other users, search for posts by key words, view their own and others'
                   profiles, and enter the site chat room. The site is reasonably, though not perfectly, responsive.</p>
               </div>
@@ -224,11 +224,13 @@
         popupDiv.className = 'popup-before';
         let popupHtml;
         let popupUnder = false;
+        let waitTime;
 
         if (targetA) {
           // for Udemy links
           popupHtml = 'If you want to know more about what the course teaches, click here to see tutorial site on Udemy, then scroll down and click "+ See More".';
           popupUnder = true;
+          waitTime = 200;
 
         } else {
           // For tile descriptions
@@ -240,7 +242,7 @@
               popupHtml = 'We were given the assignment of creating a "Tribute Page". I chose this guy, because I thought what he did was cool.';
               break;
             case "survey":
-              popupHtml = "A survey page, to practice forms and the like. The background image still cracks me up. Knowledge of the subject helps with appreciation. If you vist the page (just click on the image!), be sure to hover over the submit button for 10 seconds or so.";
+              popupHtml = "A survey page, to practice forms and the like. If you vist the page (just click on the image!), be sure to hover over the submit button for 10 seconds or so.";
               break;
             case "landing":
               popupHtml = 'My solution for the "Product Landing Page" project. Familiarity with the lyrics to Simon and Garfunkle\'s "The Big Bright Green Pleasure Machine" is helpful for appreciating the subtle inside references.';
@@ -249,9 +251,10 @@
               popupHtml = 'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. I still use it as a reference sometimes.';
               break;
             case "portfolio":
-              popupHtml = "Even this page, or at least it's primitive prototype, was an FCC project. Though of course this particular site isn't totally static -- this message and those for the other tiles are brought to you courtesy of JavaScript.";
+              popupHtml = "Even this page, or at least it's primitive prototype, was an FCC project. Though of course this particular site isn't totally static -- messages like this one are brought to you courtesy of JavaScript.";
               break;
           }
+          waitTime = 1000;
         }
 
         popupDiv.innerHTML = popupHtml;
@@ -261,7 +264,7 @@
           let tileDesc = document.getElementById('popup');
           // console.log(tileDesc);
           if (tileDesc) tileDesc.classList.add('popup-after');
-        }, 1000)
+        }, waitTime)
 
 
         // position it above the annotated element (top-center)

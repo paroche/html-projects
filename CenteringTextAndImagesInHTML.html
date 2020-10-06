@@ -7,230 +7,7 @@
 <head>
   <meta charset='UTF-8'>
   <title>Centering Text and Images in HTML/CSS</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      /* First time using this on project */
-      --test-border-width: 0px;
-      --nav-bar-width: 325px;
-      --nav-bar-width: 25%;
-      --main-start-pos: 335px;
-      --main-start-pos: 26%;
-      --code-background: #EDEDED;
-      list-style: none;
-      /* since I have to use 'li' items but don't want their formatting */
-    }
-    
-    body {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      /*font-weight: 300; /* */
-    }
-    
-    #navbar {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: var(--nav-bar-width);
-      border-right: 3px solid lightgray;
-      overflow-y: auto;
-      /* So can see whole table of contents w/out scrolling main body? */
-    }
-    
-    #navbar header {
-      font-size: 24px;
-      margin-top: 20px;
-      padding: 0 .25em;
-      text-align: center;
-      border: var(--test-border-width) solid blue;
-    }
-    
-    .nav-links-container {
-      /*margin-top: 20px; /* Doesn't work, though L & R margins work */
-      padding: 20px 0px;
-      /* This works */
-      margin-right: -0px;
-      /* Was using -1px, but led to overflow. Adjust R borders instead? */
-      border: var(--test-border-width) solid green;
-    }
-    
-    [class|='nav-link'] {
-      display: flex;
-      /* was maybe 'span' before? */
-      padding: 4px 1em 4px 20px;
-      /* Didn't work until I made it flex???*/
-      color: black;
-      text-decoration: none;
-      /*This works*/
-      border: 1px solid;
-      /*Now works. Before was flex, did not surround, just made vertical bars that take up a lot of vertical space*/
-      border-width: 0 0 1px 0;
-      /* But only want it on bottom */
-    }
-    
-    .nav-link.first {
-      border-top-width: 1px;
-    }
-    
-    #first-link {
-      border-top-width: 1px;
-    }
-    
-    .sub-links {
-      border: var(--test-border-width) solid purple;
-    }
-    
-    .nav-link-sub {
-      padding-left: 40px;
-    }
-    
-    .nav-link-sub-sub {
-      padding-left: 60px;
-    }
-    
-    #navbar a {
-      cursor: pointer;
-    }
-    
-    #navbar ul {
-      margin-top: 0px;
-    }
-    
-    #navbar li {
-      padding-top: 5px;
-      border: var(--test-border-width) solid;
-      /* THIS works. But not for .nav-links */
-    }
-    /* ************************************************ */
-    
-    #main-doc {
-      position: absolute;
-      left: var(--main-start-pos);
-      padding-bottom: 50px;
-      margin-right: 1em;
-    }
-    
-    #top-of-form-link {
-      margin-top: 5px;
-      /*margin-right: 1em; /* */
-      float: right;
-      /*margin-left: auto didn't work -- check into;/* */
-      position: sticky;
-      /* */
-      top: 0;
-      /* */
-      text-decoration: none;
-      color: gray;
-      opacity: 0;
-    }
-    
-    #top-of-form-link:hover {
-      cursor: default;
-    }
-    
-    [class*='section'] header {
-      font-size: 25px;
-      margin-bottom: 15px;
-      margin-right: 5px;
-    }
-    
-    [class*='section'] p {
-      margin-top: 10px;
-      margin-left: 1.55%;
-      margin-left: 15px;
-      /* */
-      margin-right: 5%;
-    }
-    
-    .main-section {
-      margin-top: 37px;
-      margin-left: 20px;
-    }
-    
-    .sub-section {
-      margin-top: 25px;
-      margin-left: 40px;
-    }
-    
-    .sub-section header {
-      font-size: 22px;
-    }
-    
-    code {
-      display: block;
-      /* W/out this background color doesn't fill block */
-      width: 92%;
-      /* not sure why this works at moment */
-      background-color: var(--code-background);
-      white-space: pre-wrap;
-      margin: 1em;
-      padding: 1em 2em;
-      line-height: 1.33em;
-    }
-    
-    .notes {
-      margin-left: 1em;
-      margin-top: 1.5em;
-    }
-    
-    #Some_Other_Resources li {
-      margin-top: 4px;
-      margin-left: 18px;
-    }
-    
-    #Some_Other_Resources a {
-      text-decoration: none;
-    }
-    
-    .underline {
-      text-decoration: underline;
-    }
-    
-    .footnote {
-      padding-left: 1em;
-    }
-    
-    .end-padding {
-      margin-top: 1000px;
-      /* So when link to last items they go to top. May be a better way? */
-    }
-    
-    @media(max-width: 850px) {
-      .nav-link-sub {
-        padding-left: 30px;
-        padding-right: 7px;
-      }
-    }
-    
-    @media(max-width: 700px) {
-      #navbar {
-        position: static;
-        width: 100%;
-        border-right: 3px solid lightgray;
-        /*overflow-y: auto; /* So can see whole table of contents w/out scrolling main body? */
-      }
-      #main-doc {
-        position: relative;
-        left: 0;
-        padding-bottom: 50px;
-      }
-      #top-of-form-link {
-        opacity: .1;
-      }
-      #top-of-form-link:hover {
-        top: 6px;
-        opacity: 1;
-        cursor: pointer;
-        background-color: #F0F0F0;
-        padding: 4.5px;
-      }
-      #top-of-form-link: visited {
-        color: gray;
-      }
-    }
-  </style>
+  <link href="./centeringtextandimagesinhtml.css" rel="stylesheet">
 </head>
 
 <body>
@@ -253,7 +30,7 @@
           </ul>
           <li><a class='nav-link' href='#Horizontal_Centering_of_Text_and_Images_with_Left_and_Right_Margins_set_to_Auto' rel='internal'>Horizontal Centering of Text and Images with Left and Right Margins set to Auto</a></li>
           <li><a class='nav-link' href='#Horizontal_Centering_of_Text_and_Images_using_Position_and_Transform' rel='internal'>Horizontal Centering of Text and Images using Position and Transform</a></li>
-          <li><a class='nav-link' href='#Horizontal_and_Vertical_Centering_of_Text_and_Images_with_Flexbox' rel='internal'>Horizontal and Vertical Centering of Text and Images with Flexbox</a></li>
+          <li><a class='nav-link' href='#Horizontal_and_Vertical_Centering_of_Text_and_Images_with_Flexbox' rel='internal'>Horizontal and Vertical Centering of Text and Images using Flexbox</a></li>
           <li><a class='nav-link' href='#Vertical_Centering_of_Text_using_Line_Height_or_Manual_Margins_or_Padding' ref='internal'>Vertical Centering of Text using Line Height or Manual Margins or Padding</a></li>
           <li><a class='nav-link' href='#Vertical_Centering_of_Text_or_Images_using_Position_and_Transform' ref='internal'>Vertical Centering of Text or Images using Position and Transform</a></li>
           <li><a class='nav-link' href='#Vertical_Centering_of_Text_or_Images_using_Table_Cell,_Vertical-align:_middle' ref='internal'>Vertical Centering of Text or Images using Table Cell, Vertical-align: middle</a></li>
@@ -294,7 +71,7 @@
           <header>Box Height</header>
           <p>In most cases, unless the height is explicitly assigned, block boxes are only as high as the height of their content.</p>
           <p>This also applies to flex items (if they are block items, which is the default) when the flex direction is “column”.</p>
-          <p>For flex items within a flex box with a flex-direction of “row”, each item box will by default have the height of the flex container. If the height of the flex container is not explicitly set then it will by default be the height of the contained
+          <p>For flex items within a flex box with a flex-direction of “row”, each item box will by default have the height of the flex container. If the height of the flex container is not explicitly set, then it will by default be the height of the contained
             flex item with the greatest height, which will then also be the default height for all the other flex items in the row. If the flex items wrap into multiple rows, the height of each flex item in a given row will be that of the item in that
             row with the greatest height, and the height of the flex container will be the sum of the height of each row (plus any top and/or bottom margins).</p>
         </li>
@@ -309,15 +86,17 @@
           <p>Declaring "text-align: center" for a container will center text within it. It will also center images, though that may not be recommended procedure and may not always be supported in the future. (This method is usually useful only in a non-flexbox
             block – see section below for possible exceptions). The following code will center the text:</p>
 
-          <code>HTML
+          <code><pre>
+HTML:
 
-              &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+  &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
 
-              CSS:
+CSS:
 
-              .center-non-flex {
-              text-align: center;
-              }</code>
+.center-non-flex {
+  text-align: center;
+}          </pre></code>
+
           <p>Pretty straightforward. (Side note: some other values of “text-align” besides “center” are “left” (default), “right”, and “justify” (which makes all lines the same width with even left and right margins)).</p>
         </li>
 
@@ -325,21 +104,23 @@
           <header>Using text-align within a Flexbox – Limitations and Peculiarities</header>
           <p>Under normal circumstances, "text-align" will not work if a containing element is flex, and this cannot even be overridden by changing the display value of the flex item to "block" or "inline". E.g. if the flex-direction property has its default
             value of “row”, the following code will not center a (single) line of text:</p>
-          <code>HTML:
+          <code><pre>
+HTML:
 
-              &ltdiv class='flex-container'&gt
-              &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
-              &lt/div&gt
+  &ltdiv class='flex-container'&gt
+  &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+  &lt/div&gt
 
-              CSS:
+CSS:
 
-              .flex-container {
-              display: flex;
-              }
-              .center-non-flex {
-              display: block; /* doesn’t matter */
-              text-align: center;
-              }</code>
+  .flex-container {
+    display: flex;
+  }
+  .center-non-flex {
+    display: block; /* doesn’t matter */
+    text-align: center;
+  }</pre></code>
+
           <p>Though “text-align: center” does not work for a single line of text directly inside a flex box that has the default flex-direction of “row”, it turns out that if the width of the text exceeds the width of the box (minus padding), so that the
             text wraps, all the content (text), including the first line, will then center. (And “text-align: right” will similarly only right-justify after the content starts to wrap). Strange, but true.</p>
           <p>For content within a flex item (a box within a flex box), “text-align: center” will work if the box has a fixed width, and is not itself flex (or has a flex-direction of “column”, see below). The “text-align” property value can even be inherited
@@ -355,21 +136,22 @@
     <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_with_Left_and_Right_Margins_set_to_Auto'>
       <header>Horizontal Centering of Text and Images with Left and Right Margins set to Auto</header>
       <p>For a box with a width greater than that of its contents (not a flex item in row with no width set, for instance), its contents can be centered by setting the left and right margins to “auto”, e.g.</p>
-      <code>HTML
+      <code><pre>
+HTML:
 
-          &ltdiv class='center-using-auto-margin'&gtText to be centered&lt/div&gt
-          &ltimg src=’img.jpg’ class=’center-using-auto-margin image’&gt
+  &ltdiv class='center-using-auto-margin'&gtText to be centered&lt/div&gt
+  &ltimg src=’img.jpg’ class=’center-using-auto-margin image’&gt
 
-          CSS:
+CSS:
 
-          .center-using-auto-margin {
-          width: 500px;
-          margin-left: auto; 
-          margin-right: auto;
-          }
-          .image {
-          width: 200px;
-          }</code>
+  .center-using-auto-margin {
+    width: 500px;
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  .image {
+    width: 200px;
+  }</pre></code>
     </section>
 
     <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_using_Position_and_Transform'>
@@ -384,7 +166,7 @@
     </section>
 
     <section class='main-section' id='Horizontal_and_Vertical_Centering_of_Text_and_Images_with_Flexbox'>
-      <header>Horizontal and Vertical Centering of Text and Images with Flexbox</header>
+      <header>Horizontal and Vertical Centering of Text and Images using Flexbox</header>
       <p>Centering text and images with flex box is pretty straightforward. The most notable complication is that in flex box there is no “horizontal” or “vertical” axis per se, but rather a “main axis” and a “cross axis”. How these correspond depends on
         the “flex-direction” property. By default, the “flex-direction” is set to “row”, so that flex items line up horizontally. For “flex-direction: row”, and for “flex-direction: row-reverse”, which put the flex items on the same line (as long as there’s
         room), the main axis is horizontal, and the cross axis is vertical. If the “flex-direction” property is set to “column” (or to “column-reverse”), the flex items are by default on separate lines, in a column, and the main axis is vertical while
@@ -408,37 +190,41 @@
         </li>
         <li>
           <p>2. Another method is that, for one line of text, you can set the line-height equal to the height of the container, or to the height you want the container to be, as shown below (also centers horizontally):</p>
-          <code>HTML: 
+          <code><pre>
+HTML: 
 
-              &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+  &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
 
-              CSS:
+CSS:
 
-              .center-non-flex {
-              height: 200px; /* This is unnecessary – without this code box height will just be the line-height */
-              text-align: center;
-              line-height: 200px
-              border: 1px solid;
-              }</code>
+  .center-non-flex {
+    height: 200px; /* This is unnecessary – without this code box height will just be the line-height */
+    text-align: center;
+    line-height: 200px
+    border: 1px solid;
+  }</pre></code>
+
           <p>To vertically center multiple lines of text one could divide the line height by the number of lines to spread them out vertically. To center them all together you would have to put them into another container and use one of the techniques described
             below on that container.</p>
         </li>
         <li>
           <p>3. Center vertically using padding. For some reason this only works if you do <strong>not</strong> set the container height. But you can decide how high you want the container to be and use top and bottom padding to center your lines:</p>
-          <code>HTML:
+          <code><pre>
+HTML:
 
-              &ltdiv class='center-non-flex'&gt
-              &ltp&gtText to be centered&lt/p&gt
-              &ltp&gt2nd line&lt/p&gt
-              &lt/div&gt
+  &ltdiv class='center-non-flex'&gt
+    &ltp&gtText to be centered&lt/p&gt
+    &ltp&gt2nd line&lt/p&gt
+  &lt/div&gt
 
-              CSS:          
+CSS:          
 
-              .center-non-flex {
-              text-align: center;
-              padding: 90px 0 90px 0;
-              border: 1px solid
-              }</code>
+  .center-non-flex {
+    text-align: center;
+    padding: 90px 0 90px 0;
+    border: 1px solid
+  }</pre></code>
+
         </li>
       </ul>
     </section>
@@ -448,45 +234,49 @@
       <p>Position and Transform can be used to center images or text vertically (as well as horizontally). The content (image or text) is set to have “position: relative” and “top: 50%” to put its top edge in the middle of the box (vertically), then adjusted
         up by 50% of its own height by adding the property “transform: translateY(-50%)”. This will place it in the center of its container. (Of course, as always, the container has to have a height set higher than that of the content). E.g.:
       </p>
-      <code>HTML
+      <code><pre>
+HTML:
 
-          &ltdiv class=’container’&gt
-          &ltimg src=’img-to-center.jpg’ class=’center-vertically-position-transform image’&gt
-          &lt/div&gt
+  &ltdiv class=’container’&gt
+  &ltimg src=’img-to-center.jpg’ class=’center-vertically-position-transform image’&gt
+  &lt/div&gt
 
-          CSS:
+CSS:
 
-          .container {
-          height: 400px;
-          }
-          .center-vertically-position-transform {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
-          }
-          .image {
-          height: 200px;
-          }</code>
+  .container {
+    height: 400px;
+  }
+  .center-vertically-position-transform {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .image {
+    height: 200px;
+}</pre></code>
+
       <p>Note that to vertically center text or an image in a container using Position and Transform, the text has to be in its own sub-container within the container that it’s being centered in, so that the Position and Transform properties can be applied
         to the content and not the outer container. E.g.</p>
-      <code>HTML
+      <code><pre>
+HTML:
 
-          &ltdiv id=’container’&gt
-          &ltdiv id=’text-to-center’&gt
-          Text to center using Position and Transform
-          &lt/div&gt
-          &lt/div&gt
+  &ltdiv id=’container’&gt
+    &ltdiv id=’text-to-center’&gt
+      Text to center using Position and Transform
+    &lt/div&gt
+  &lt/div&gt
 
-          CSS:    
+CSS:    
 
-          #container {
-          height: 400px;
-          }
-          #text-to-center {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
-          }</code>
+  #container {
+    height: 400px;
+  }
+  #text-to-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }</pre></code>
+
       <p>Above, the “position: relative” “top: 50%”* moves the “text-to-center” division down 50% of the height of its container (the division “container”). The “transform: translateY(-50%)” then moves it back up 50% of its own height. If the “text-to-center”
         division were not there, and/or the Position and Transform values were instead assigned to “#container”, the container itself would be adjusted relative to <span class='underline'>its</span> container, and its contents would not be vertically
         centered.
@@ -511,11 +301,13 @@
       <header>Vertical Centering of Text or Images using Table Cell, Vertical-align: middle</header>
       <p>Another way to get and item to center vertically without using flexbox is to make the container a table cell, then use the vertical-align property of table cells to align the item. This is perhaps a bit conceptually easier than Position and Transform,
         and, like Position and Transform, does not require knowing the dimensions of the container or the contents. Unlike Position and Transform, and like Flexbox and text-align, it operates at the level of the container rather than of the content.</p>
-      <code>CSS (for the container):
+      <code><pre>
+CSS (for the container):
 
-          display: table-cell; 
-          height: 200px; 
-          vertical-align: middle;</code>
+  display: table-cell; 
+  height: 200px; 
+  vertical-align: middle;</pre></code>
+
       <ul class='notes'>Notes:
         <li>
           <p>There is no “horizontal-align” – table cells typically use “text-align” for that purpose.</p>
@@ -548,7 +340,6 @@
           <li><a href='https://yoksel.github.io/flex-cheatsheet/' alt='Flex Cheatsheat' target='_blank'>Flex Cheatsheat (yoksel/github)</a></li>
           <li><a href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/' alt='Guide to Flexbox (CSS-Tricks)' target='_blank'>A Guide to Flexbox (CSS-Tricks)</a></li>
           <li><a href='https://internetingishard.com/html-and-css/flexbox/' alt='Flexbox (Internetting is Hard)' target='_blank'>Flexbox (Internetting is Hard)</a></li>
-          <li><a href='https://medium.com/@wendersyang/what-the-flex-is-the-difference-between-justify-content-align-items-and-align-content-5fd3694f5259' alt="Difference between justify-content, align-items, and align-content'" " target='_blank'">What the flex is the difference between justify-content, align-items, and align-content?! (Wendy Yang)</a></li>
           <li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Flexbox' alt='Box Alignment in Flexbox (MDN)' target='_blank'>Box Alignment in Flexbox (MDN)</a></li>
         </ul>
       </section>
