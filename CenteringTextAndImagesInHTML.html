@@ -93,9 +93,9 @@ HTML:
 
 CSS:
 
-.center-non-flex {
-  text-align: center;
-}          </pre></code>
+  .center-non-flex {
+    text-align: center;
+  }          </pre></code>
 
           <p>Pretty straightforward. (Side note: some other values of “text-align” besides “center” are “left” (default), “right”, and “justify” (which makes all lines the same width with even left and right margins)).</p>
         </li>
@@ -108,7 +108,7 @@ CSS:
 HTML:
 
   &ltdiv class='flex-container'&gt
-  &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+    &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
   &lt/div&gt
 
 CSS:
@@ -238,7 +238,7 @@ CSS:
 HTML:
 
   &ltdiv class=’container’&gt
-  &ltimg src=’img-to-center.jpg’ class=’center-vertically-position-transform image’&gt
+    &ltimg src=’img-to-center.jpg’ class=’center-vertically-position-transform image’&gt
   &lt/div&gt
 
 CSS:
@@ -253,7 +253,7 @@ CSS:
   }
   .image {
     height: 200px;
-}</pre></code>
+  }</pre></code>
 
       <p>Note that to vertically center text or an image in a container using Position and Transform, the text has to be in its own sub-container within the container that it’s being centered in, so that the Position and Transform properties can be applied
         to the content and not the outer container. E.g.</p>
