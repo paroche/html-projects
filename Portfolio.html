@@ -210,16 +210,13 @@
 
       document.onmouseover = function(event) {
 
-        let targetDiv = event.target.closest('div');
-        // console.log(targetDiv);
-        //     <div class='project-tile' id='portfolio' data-tiledesc="portfolio">
-        if (!targetDiv) return; // don't see why would need this
+        let targetDiv = event.target.closest('.project-tile');
+        if (!targetDiv) return;
         // if we have tileDesc HTML...
         let tileDescContent = targetDiv.dataset.tiledesc;
         if (!tileDescContent) return;
 
         // ...create the tileDesc element
-        // console.log(tileDescContent); // t
         tileDescElem = document.createElement('div');
         tileDescElem.id = 'tile-desc';
         tileDescElem.className = 'tile-desc-before';
@@ -229,16 +226,16 @@
             tileDescHtml = 'We were given the assignment of creating a "Tribute Page". I chose this guy, because I thought what he did was cool.';
             break;
           case "survey":
-            tileDescHtml = "A survey page, to practice forms and the like. The background image still cracks me up. Again, knowledge of the subject helps with appreciation. If you vist the page (just click on the image!), be sure to hover over the submit button for 10 seconds or so.";
+            tileDescHtml = "A survey page, to practice forms and the like. The background image still cracks me up. Knowledge of the subject helps with appreciation. If you vist the page (just click on the image!), be sure to hover over the submit button for 10 seconds or so.";
             break;
           case "landing":
-            tileDescHtml = 'My solution for the "Product Landing Page" project. It helps a lot with the appreciation of the subtle inside references if you are familiar with the lyrics to Simon and Garfunkle\'s "The Big Bright Green Pleasure Machine".';
+            tileDescHtml = 'My solution for the "Product Landing Page" project. Familiarity with the lyrics to Simon and Garfunkle\'s "The Big Bright Green Pleasure Machine" is helpful for appreciating the subtle inside references.';
             break;
           case "techdoc":
             tileDescHtml = 'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. I still use it as a reference sometimes.';
             break;
           case "portfolio":
-            tileDescHtml = "This very page, or at least it's primitive prototype, was an FCC project. Though of course this site isn't totally static, in that this very message is brought to you courtesy of JavaScript.";
+            tileDescHtml = "Even this page, or at least it's primitive prototype, was an FCC project. Though of course this particular site isn't totally static -- this message and those for the other tiles are brought to you courtesy of JavaScript.";
             break;
         }
 
@@ -256,8 +253,7 @@
         let coords = targetDiv.getBoundingClientRect();
 
         let left = coords.left + (targetDiv.offsetWidth - tileDescElem.offsetWidth) / 2;
-        if (left < 0) left = 0; // don't cross the left window edge
-        left = Math.max(left, 15); // t
+        left = Math.max(left, 15); //
 
         let top = coords.top - tileDescElem.offsetHeight - 5;
         if (top < 0) { // if crossing the top window edge, show below instead
