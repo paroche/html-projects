@@ -303,8 +303,7 @@
     transition: all .5s ease;
   }
   /* Project specific styling */
-  
-  #eratosthenes {
+  /* #eratosthenes {
     background-color: hsl(178, 37%, 81%);
     background-color: #CDD;
   }
@@ -320,6 +319,10 @@
   #technical-documentation {
     background-color: #CCC;
   }
+  
+  #portfolio {
+    background-color: #CCC;
+  } */
   /* Contact Section */
   
   #contact {
