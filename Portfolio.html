@@ -30,9 +30,9 @@
       </div>
       <div id="welcome-body-container">
         <div id='welcome-body'>
-          <h1>Peter Roche</h1>
+          <h1 class="main-header">Peter Roche</h1>
 
-          <h2>Portfolio of Student Projects</h2>
+          <h2 class="main-header">Portfolio of Student Projects</h2>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@
 
               <div class="project__description__content">
                 <div class="project__description__content__header">
-                  Tour Site -- Express.js & Mongoose</div>
+                  Tour Site -- Node/Express & MongoDB/Mongoose</div>
                 <p>"Natours" is a fictional nature tours site built in the course of taking Jonas Schemedtmann's tutorial "<a class="udemy-link" href="https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/learn/lecture/15080914?start=165#overview">Node.js, Express, MongoDB & More: The Complete Bootcamp 2020</a>".
                   It uses JavaScript / Node.js / Express / MongoDB / Mongoose for the API and back end, and Pug Templates to render the front end. The API is used to handle requests from the front-end user (as well as providing access to its data from
                   other sites). It allows users to look at the tours, see maps of tour destinations, read and create reviews of tours, book tours through Stripe credit card processing, etc. The site has multiple security features to protect itself and
@@ -190,7 +190,7 @@
 
     <div id='contact'>
       <h2>Contact Information</h2>
-      <h3>Offer me a job, or just say hi!</h3>
+      <h3>Hire me, or just say hi!</h3>
       <div class="contact__info">
         <p>Peter Roche</p>
         <p>2916-C Avenida Alamosa</p>
@@ -228,7 +228,7 @@
 
         if (targetA) {
           // for Udemy links
-          popupHtml = 'If you want to know more about what the course teaches, click here to see tutorial site on Udemy, then scroll down and click "+ See More".';
+          popupHtml = 'If you want to know more about what this course teaches, click here to see the tutorial site on Udemy, then scroll down and click on: <span class="underline bold">+ See More</span>.';
           popupUnder = true;
           waitTime = 200;
 
@@ -248,7 +248,7 @@
               popupHtml = 'My solution for the "Product Landing Page" project. Familiarity with the lyrics to Simon and Garfunkle\'s "The Big Bright Green Pleasure Machine" is helpful for appreciating the subtle inside references.';
               break;
             case "techdoc":
-              popupHtml = 'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. I still use it as a reference sometimes.';
+              popupHtml = 'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. A useful reference.';
               break;
             case "portfolio":
               popupHtml = "Even this page, or at least it's primitive prototype, was an FCC project. Though of course this particular site isn't totally static -- messages like this one are brought to you courtesy of JavaScript.";
