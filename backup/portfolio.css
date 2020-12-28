@@ -67,17 +67,16 @@
   }
   /* Welcome */
   
+  #welcome-wrapper {
+    opacity: .2;
+  }
+  
   #welcome-section {
     height: 100vh;
     color: rgb(66, 5, 128);
     color: rgb(83 31 136);
-    /* background-color: var(--welcome-background-color);
-    background-image: url("./img/BrickTown-1.jpg"); */
-    --background-cover-opacity: 0;
-    --background-cover-r: 0;
-    --background-cover-g: 0;
-    --background-cover-b: 0;
-    background: linear-gradient(to top, rgba(var(--background-cover-r), var(--background-cover-g), var(--background-cover-b), var(--background-cover-opacity)), rgba(var(--background-cover-r), var(--background-cover-g), var(--background-cover-b), var(--background-cover-opacity))), url("./img/BrickTown-1.jpg"), var(--welcome-background-color);
+    background-color: var(--welcome-background-color);
+    background-image: url("./img/BrickTown-1.jpg");
     background-size: cover;
     display: flex;
     flex-direction: column;

@@ -27,6 +27,8 @@ body {
   border-right: 3px solid lightgray;
   overflow-y: auto;
   /* So can see whole table of contents w/out scrolling main body? */
+  z-index: -1;
+  /* looking to have it under text if is overlap */
 }
 
 #navbar header {
@@ -102,6 +104,8 @@ body {
   left: var(--main-start-pos);
   padding-bottom: 50px;
   margin-right: 1em;
+  background-color: white;
+  z-index: 1;
 }
 
 #top-of-form-link {
@@ -139,6 +143,8 @@ body {
 .main-section {
   margin-top: 37px;
   margin-left: 20px;
+  background: white;
+  /* allows to overlay nav bar w/ z-index: -1 if is overlap */
 }
 
 .sub-section {
